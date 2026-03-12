@@ -1,90 +1,61 @@
 <!DOCTYPE html>
-<html>
-<div id="data" class="role-content">
 
-<h3>Data Analyst Portfolio</h3>
+<html lang="en">
 
-<p>Projects related to data analysis.</p>
-
-</div>
-
-
-<div id="ci" class="role-content" style="display:none">
-
-<h3>Continuous Improvement Portfolio</h3>
-
-<p>Process optimization projects.</p>
-
-</div>
-<script>
-
-function showRole(role){
-
-document.getElementById("data").style.display="none";
-document.getElementById("ci").style.display="none";
-document.getElementById("pm").style.display="none";
-
-document.getElementById(role).style.display="block";
-
-}
-
-</script>
-
-<div id="pm" class="role-content" style="display:none">
-
-<h3>Project Management Portfolio</h3>
-
-<p>Project coordination and management work.</p>
-
-</div>
-  
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Fadila Utami Portfolio</title>
 
-<style>
-.role-btn{
-background:#e5e5e5;
-border:none;
-padding:8px 16px;
-border-radius:20px;
-margin-left:10px;
-cursor:pointer;
-font-weight:bold;
-}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-.role-btn.active{
-background:#0f766e;
-color:white;
+<style>
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f3f5f6;
+margin:0;
+color:#24423d;
 }
 
 .container{
 width:90%;
+max-width:1200px;
 margin:auto;
 }
 
 /* HEADER */
 
 .header{
-background:#0f766e;
+background:#1c766b;
 color:white;
-padding:15px;
-border-radius:10px;
-margin-top:20px;
+padding:18px 25px;
+border-radius:14px;
+margin-top:25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
-.role{
+.role-btn{
 background:#e5e5e5;
-padding:6px 14px;
+border:none;
+padding:8px 18px;
 border-radius:20px;
 margin-left:10px;
 cursor:pointer;
+font-weight:600;
 }
 
-/* PROFILE SECTION */
+.role-btn.active{
+background:#1c766b;
+color:white;
+border:2px solid white;
+}
+
+/* PROFILE */
 
 .profile-section{
 display:flex;
@@ -95,23 +66,26 @@ margin-top:20px;
 .profile-card{
 background:white;
 padding:15px;
-border-radius:10px;
-width:250px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+border-radius:14px;
+width:260px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 .profile-card img{
 width:100%;
-border-radius:10px;
+border-radius:12px;
 }
 
 .about-card{
 background:white;
-padding:20px;
-border-radius:10px;
+padding:25px;
+border-radius:14px;
 flex:1;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+text-align:justify;
 }
+
+/* GRID */
 
 .grid{
 display:grid;
@@ -122,35 +96,102 @@ margin-top:20px;
 
 .card{
 background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+padding:20px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+text-align:justify;
 }
 
+.card i{
+color:#1c766b;
+margin-right:10px;
+}
+
+.card a{
+text-decoration:none;
+color:#1c766b;
+font-weight:600;
+}
+
+/* SKILLS */
+
 .skills{
-display:flex;
-gap:20px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
 margin-top:20px;
 }
 
 .skill{
 background:white;
 padding:15px;
-border-radius:10px;
-flex:1;
+border-radius:14px;
 text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+font-weight:600;
 }
 
-.projects{
+/* SOFT SKILLS */
+
+.soft-skills{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
 margin-top:20px;
+}
+
+.soft{
+background:white;
+padding:12px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* PROJECT */
+
+.projects{
+margin-top:25px;
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
 .project-card{
 background:white;
-padding:15px;
-border-radius:10px;
+padding:20px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.project-card h4{
+margin-top:0;
+color:#1c766b;
+}
+
+/* BUTTON */
+
+.download-btn{
+background:#1c766b;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:20px;
+cursor:pointer;
 margin-top:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ROLE CONTENT */
+
+.role-content{
+display:none;
+}
+
+.role-content.active{
+display:block;
 }
 
 </style>
@@ -166,39 +207,45 @@ box-shadow:0 2px 8px rgba(0,0,0,0.1);
 <h3>My Portfolio</h3>
 
 <div>
-<button class="role-btn active" onclick="showRole('data')">
+
+<button class="role-btn active" onclick="showRole('data',this)">
 Data Analyst
 </button>
 
-<button class="role-btn" onclick="showRole('ci')">
+<button class="role-btn" onclick="showRole('ci',this)">
 Continuous Improvement
 </button>
 
-<button class="role-btn" onclick="showRole('pm')">
+<button class="role-btn" onclick="showRole('pm',this)">
 Project Management
 </button>
+
 </div>
 
 </div>
+
+<!-- DATA ANALYST -->
+
+<div id="data" class="role-content active">
 
 <div class="profile-section">
 
 <div class="profile-card">
-
 <img src="Profile.png">
-
 </div>
 
 <div class="about-card">
 
 <h2>Fadila Utami</h2>
-<h4>Industrial Engineering Graduate</h4>
+<h4>Data Analyst</h4>
 
 <p>
-  I am a Data Analyst with an Industrial Engineering background, passionate about leveraging data to drive business efficiency and strategic decisions. 
-  My experience has shown how data-driven insights can lead to significant improvements, motivating my transition into data analytics. I am eager to 
-  collaborate with teams to transform data into impactful strategies that align with organizational goals.
+Data Analyst with an Industrial Engineering background focused on operational excellence and data-driven decision making. Experienced in SQL, Python, Excel, Power BI, and Tableau to transform complex datasets into actionable insights and support business strategy.
 </p>
+
+<a href="fadila utami (Revisi)(W2).pdf" target="_blank">
+<button class="download-btn">Download CV</button>
+</a>
 
 </div>
 
@@ -207,31 +254,46 @@ Project Management
 <div class="grid">
 
 <div class="card">
+
 <h3>Contact</h3>
-<p><i class="fa-solid fa-location-dot"></i> Padang, Indonesia (Open to Relocation)</p>
-<p><a href="https://www.linkedin.com/in/fadila-utami" target="_blank">LinkedIn</a></p>
-<p><i class="fa-solid fa-envelope"></i><a href="mailto:fu.fadilautami@gmail.com">Email</a></p>
+
+<p>
+<i class="fa-brands fa-linkedin"></i>
+<a href="https://linkedin.com/in/fadila-utami" target="_blank">LinkedIn</a>
+</p>
+
+<p>
+<i class="fa-solid fa-envelope"></i>
+<a href="mailto:fu.fadilautami@gmail.com">Email</a>
+</p>
+
+<p>
+<i class="fa-brands fa-whatsapp"></i>
+<a href="https://wa.link/epaok0" target="_blank">WhatsApp</a>
+</p>
+
 </div>
 
 <div class="card">
+
 <h3>Education</h3>
-<p>Master of Science Industrial Engineering</p>    
+
+<p><b>Master of Industrial Engineering</b></p>
 <p>Universiti Teknologi Malaysia</p>
-<p>Sep 2021 – Mar 2023</p>
 
-<p>Bachelor of Industrial Engineering</p>
+<p><b>Bachelor of Industrial Engineering</b></p>
 <p>Universitas Pancasila</p>
-<p>Aug 2014 – Sep 2018</p>
 
-<p>Full Stack Data Analytics Program</p>
-<p>RevoU</p>
-<p>Oct 2025 – Feb 2026</p>
 </div>
 
 <div class="card">
+
 <h3>Certifications</h3>
-<p>Full-stack Data Analytics Program – RevoU (2026)</p>
-<p>Data Analyst – Dsarea (2025)</p>
+
+<p><a href="#">Full-stack Data Analytics – RevoU</a></p>
+<p><a href="#">Six Sigma Green Belt</a></p>
+<p><a href="#">Google Project Management</a></p>
+
 </div>
 
 </div>
@@ -239,11 +301,21 @@ Project Management
 <div class="skills">
 
 <div class="skill">Excel</div>
-<div class="skill">Spreadsheet</div> 
 <div class="skill">SQL</div>
 <div class="skill">Python</div>
+<div class="skill">Power BI</div>
 <div class="skill">Tableau</div>
-<div class="skill">PowerBI</div>
+
+</div>
+
+<div class="soft-skills">
+
+<div class="soft">Analytical Thinking</div>
+<div class="soft">Problem Solving</div>
+<div class="soft">Data Storytelling</div>
+<div class="soft">Team Collaboration</div>
+<div class="soft">Attention to Detail</div>
+<div class="soft">Curiosity</div>
 
 </div>
 
@@ -251,19 +323,43 @@ Project Management
 
 <h3>Project Experience</h3>
 
-<div class="project-card">
-<h4>Sales Data Analysis</h4>
-<p>Analyze sales data to identify trends.</p>
-</div>
+<div class="project-grid">
 
 <div class="project-card">
-<h4>Process Improvement</h4>
-<p>Improved operational efficiency.</p>
+<h4>Customer Segmentation</h4>
+<p>Applied clustering techniques using Python to segment customers and identify high-value user groups.</p>
+</div>
+
+<div class="project-card">
+<h4>Sales Dashboard</h4>
+<p>Built Power BI dashboards to visualize revenue trends and support strategic decision making.</p>
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+<script>
+
+function showRole(role,btn){
+
+let contents=document.querySelectorAll(".role-content");
+contents.forEach(c=>c.classList.remove("active"));
+
+document.getElementById(role).classList.add("active");
+
+let buttons=document.querySelectorAll(".role-btn");
+buttons.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+}
+
+</script>
 
 </body>
 </html>
