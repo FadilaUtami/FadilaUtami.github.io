@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html>
+<div id="data" class="role-content">
+
+<h3>Data Analyst Portfolio</h3>
+
+<p>Projects related to data analysis.</p>
+
+</div>
+
+
+<div id="ci" class="role-content" style="display:none">
+
+<h3>Continuous Improvement Portfolio</h3>
+
+<p>Process optimization projects.</p>
+
+</div>
+<script>
+
+function showRole(role){
+
+document.getElementById("data").style.display="none";
+document.getElementById("ci").style.display="none";
+document.getElementById("pm").style.display="none";
+
+document.getElementById(role).style.display="block";
+
+}
+
+</script>
+
+<div id="pm" class="role-content" style="display:none">
+
+<h3>Project Management Portfolio</h3>
+
+<p>Project coordination and management work.</p>
+
+</div>
+  
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>Fadila Utami Portfolio</title>
 
 <style>
-.card i{
-color:#0f766e;
-margin-right:8px;
-}
-
-.card a{
-text-decoration:none;
-color:#0f766e;
+.role-btn{
+background:#e5e5e5;
+border:none;
+padding:8px 16px;
+border-radius:20px;
+margin-left:10px;
+cursor:pointer;
 font-weight:bold;
 }
 
-.card a:hover{
-text-decoration:underline;
-}
-body{
-font-family:Arial;
-background:#f4f4f4;
-margin:0;
+.role-btn.active{
+background:#0f766e;
+color:white;
 }
 
 .container{
@@ -133,9 +166,17 @@ box-shadow:0 2px 8px rgba(0,0,0,0.1);
 <h3>My Portfolio</h3>
 
 <div>
-<span class="role">Data Analyst</span>
-<span class="role">Continuous Improvement</span>
-<span class="role">Project Management</span>
+<button class="role-btn active" onclick="showRole('data')">
+Data Analyst
+</button>
+
+<button class="role-btn" onclick="showRole('ci')">
+Continuous Improvement
+</button>
+
+<button class="role-btn" onclick="showRole('pm')">
+Project Management
+</button>
 </div>
 
 </div>
