@@ -8,10 +8,9 @@
     <style>
         :root {
             --primary-green: #004d40;
-            --secondary-green: #1c766b;
             --accent-gold: #c5a059;
-            --bg-light: #f3f5f6;
             --white: #ffffff;
+            --bg-light: #f3f5f6;
             --gray-box: #ebedee;
         }
 
@@ -51,25 +50,28 @@
         .item-primary b { color: var(--accent-gold); display: block; margin-bottom: 2px; }
         .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
 
+        /* SKILLS AREA */
+        .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 15px; }
+        .tech-skills-list { display: flex; justify-content: space-around; align-items: center; padding: 10px 0; }
+        .tech-icon { text-align: center; font-size: 0.65rem; color: #666; }
+        .tech-icon i { font-size: 1.5rem; color: var(--secondary-green); display: block; margin-bottom: 4px; }
+        .soft-skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag-box { background: var(--gray-box); padding: 6px 15px; border-radius: 25px; font-size: 0.75rem; border: 1px solid #ddd; font-weight: 600; }
+
         /* EXPERIENCE SECTION */
         .exp-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 20px; background: #fff; }
         .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .project-card-clickable { background: var(--gray-box); border: 1px solid #ddd; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; }
+        .project-card-clickable { background: var(--gray-box); border: 1px solid #ddd; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; position: relative; }
         .project-card-clickable:hover { border-color: var(--primary-green); transform: translateY(-3px); background: #f0f4f3; }
         .tool-tag { font-size: 0.65rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
 
-        /* MODAL STYLES */
+        /* MODAL */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow-y: auto; }
         .modal-content { background-color: #fefefe; margin: 3% auto; padding: 30px; border: 3.5px solid var(--primary-green); width: 85%; max-width: 1000px; border-radius: 15px; position: relative; }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #aaa; }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
         .modal-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
         .modal-image { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
         .modal-info b { color: var(--primary-green); display: block; margin-top: 10px; font-size: 0.9rem; }
-        .modal-info span { font-size: 0.85rem; line-height: 1.4; display: block; margin-bottom: 5px; }
-        .modal-links { display: flex; gap: 15px; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
-        .btn-modal { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
-        .btn-deck { background: #d32f2f; }
-        .btn-code { background: #1976d2; }
     </style>
 </head>
 <body>
@@ -86,7 +88,6 @@
 
     <div class="bento-grid">
         <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
-        
         <div class="card about-card">
             <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
             <div class="section-title">ABOUT ME</div>
@@ -99,13 +100,26 @@
             <div class="section-title">CONTACT</div>
             <div id="contact-content" class="stack-container"></div>
         </div>
+
         <div class="card">
             <div class="section-title">EDUCATION</div>
             <div id="edu-content" class="stack-container"></div>
         </div>
+
         <div class="card">
             <div class="section-title">CERTIFICATIONS</div>
             <div id="cert-content" class="stack-container"></div>
+        </div>
+    </div>
+
+    <div class="skills-row">
+        <div class="card">
+            <div class="section-title">TECHNICAL SKILLS</div>
+            <div id="tech-skills" class="tech-skills-list"></div>
+        </div>
+        <div class="card">
+            <div class="section-title">SOFT SKILLS</div>
+            <div id="soft-skills" class="soft-skills-grid"></div>
         </div>
     </div>
 
@@ -120,7 +134,7 @@
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <h3 id="m-title" style="color: var(--primary-green); margin-top: 0;"></h3>
         <div class="modal-grid">
-            <div><img id="m-image" src="" alt="Preview" class="modal-image"></div>
+            <div><img id="m-image" src="" alt="Dashboard Preview" class="modal-image"></div>
             <div class="modal-info">
                 <b>Background Problem:</b> <span id="m-bg"></span>
                 <b>Objective:</b> <span id="m-obj"></span>
@@ -129,8 +143,8 @@
             </div>
         </div>
         <div class="modal-links">
-            <a id="m-deck" href="#" target="_blank" class="btn-modal btn-deck"><i class="fa-solid fa-file-powerpoint"></i> View Deck</a>
-            <a id="m-code" href="#" target="_blank" class="btn-modal btn-code"><i class="fa-solid fa-code"></i> BigQuery / Colab</a>
+            <a id="m-deck" href="#" target="_blank" style="color:red; font-weight:bold;">View Deck (PPT)</a> | 
+            <a id="m-code" href="#" target="_blank" style="color:blue; font-weight:bold;">BigQuery / Colab</a>
         </div>
     </div>
 </div>
@@ -140,125 +154,87 @@ const pageData = {
     data: {
         role: "DATA ANALYST",
         about: "Data Analyst dengan latar belakang Teknik Industri. Ahli dalam mentransformasi data mentah menjadi wawasan strategis menggunakan SQL, Python, dan Visualisasi Data.",
+        tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
+        soft: ["Analytical Problem Solving", "Data Storytelling", "Collaboration"],
         items: [
-            {
-                t: "Supergoop! Performance Analysis",
-                bg: "Menganalisis pendorong rating produk Supergoop! di Sephora menggunakan data review pelanggan tahun 2023.",
-                obj: "Mengidentifikasi faktor kepuasan pelanggan dan sentimen untuk perbaikan produk.",
-                meth: "Data Cleaning, Sentiment Analysis, dan EDA menggunakan Python (Google Colab) & Power BI.",
-                res: "76% review positif; produk Mini Size teridentifikasi sebagai pendorong keterlibatan tinggi.",
-                img: "supergoop_dashboard.jpg", deck: "#", code: "#", tools: ["Python", "Power BI", "EDA"]
-            },
-            {
-                t: "RevoBank Customer Segmentation",
-                bg: "Evaluasi kinerja kartu kredit dan identifikasi persona pengguna untuk strategi pemasaran.",
-                obj: "Segmentasi pelanggan berdasarkan perilaku transaksi dan demografi.",
-                meth: "K-Means Clustering menggunakan Python (Pandas, Scikit-Learn).",
-                res: "Mendefinisikan 3 persona pelanggan unik; Cluster 1 sebagai High-Value Active Users.",
-                img: "revobank_preview.jpg", deck: "#", code: "#", tools: ["SQL", "Python", "K-Means"]
-            },
-            {
-                t: "RevoGrocers Sales Performance",
-                bg: "Tantangan performa kategori produk yang membutuhkan realokasi sumber daya.",
-                obj: "Identifikasi kategori terbaik dan faktor pendorong pendapatan (harga vs volume).",
-                meth: "Sales Trend Analysis menggunakan SQL (BigQuery).",
-                res: "Identifikasi Meat & Confections sebagai pendorong utama; rekomendasi insentif basket size.",
-                img: "revogrocers_preview.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"]
-            },
-            {
-                t: "RevoFinance Dashboard",
-                bg: "Kebutuhan pengguna untuk melacak pola pengeluaran tahunan dan anggaran secara visual.",
-                obj: "Membangun dashboard interaktif untuk visibilitas pengeluaran Rp 509M.",
-                meth: "Data Blending & Visualization menggunakan Tableau.",
-                res: "Dashboard real-time yang membagi pengeluaran berdasarkan kategori, merchant, dan tren.",
-                img: "revofinance_preview.jpg", deck: "#", code: "#", tools: ["Tableau", "Data Viz"]
-            }
+            { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python (Google Colab) & Power BI.", res: "76% Positif.", img: "sg.jpg", deck: "#", code: "#", tools: ["Python", "Power BI"] },
+            { t: "RevoBank Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "Python (Pandas, Scikit-Learn).", res: "3 Persona Teridentifikasi.", img: "rb.jpg", deck: "#", code: "#", tools: ["SQL", "Python"] },
+            { t: "RevoGrocers Sales Performance", bg: "Realokasi sumber daya kategori.", obj: "Identifikasi revenue driver.", meth: "SQL (BigQuery).", res: "Meat & Confections pendorong utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
+            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard pengeluaran interaktif.", meth: "Tableau.", res: "Visualisasi Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }
         ]
     },
     ci: {
         role: "CONTINUOUS IMPROVEMENT ANALYST",
-        about: "Berfokus pada efisiensi operasional dan optimasi proses melalui prinsip Lean Manufacturing dan Six Sigma.",
-        items: [
-            {
-                t: "Working Experience: Property Operations",
-                bg: "Ketidakefisienan alur kerja lintas fungsi dan integritas data di berbagai properti.",
-                obj: "Meningkatkan efisiensi kerja dan standarisasi proses pelaporan.",
-                meth: "Root Cause Analysis (RCA) dan standarisasi alur kerja entri data.",
-                res: "Meningkatkan efisiensi alur kerja sebesar 30% dan reliabilitas data 100%.",
-                img: "ci_workflow.jpg", deck: "#", code: "#", tools: ["Lean", "RCA", "SOP"]
-            }
-        ]
+        about: "Expert in process optimization. Improved workflow efficiency by 30% melalui Lean principles.",
+        tech: [{n:"Process Mapping", i:"fa-diagram-project"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Lean Tools", i:"fa-gears"}],
+        soft: ["Systems Thinking", "Root Cause Analysis", "Operational Excellence"],
+        items: [{ t: "Working Exp: Property Operations", bg: "Inefisiensi alur kerja.", obj: "Optimasi proses Lean.", meth: "RCA & SOP Standar.", res: "Efisiensi +30%.", img: "ci.jpg", deck: "#", code: "#", tools: ["Lean", "RCA"] }]
     },
     pm: {
         role: "PROJECT MANAGEMENT",
-        about: "Berpengalaman dalam mengelola koordinasi proyek kompleks dan lini masa menggunakan jadwal Gantt.",
-        items: [
-            {
-                t: "Working Experience: KPU Malaysia",
-                bg: "Mengelola logistik dan personil di 5 lokasi operasional selama masa pemilihan umum.",
-                obj: "Mencapai 100% keberhasilan operasional melalui manajemen timeline yang presisi.",
-                meth: "Pengembangan jadwal proyek Gantt dan koordinasi tim lintas fungsi.",
-                res: "Proyek selesai tepat waktu dengan target tercapai 100% tanpa downtime.",
-                img: "pm_election.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"]
-            }
-        ]
+        about: "Mengoordinasikan proyek kompleks dan mengelola lini masa menggunakan jadwal Gantt.",
+        tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Management", i:"fa-tasks"}],
+        soft: ["Timeline Management", "Stakeholder Alignment", "Coordination"],
+        items: [{ t: "Working Exp: KPU Malaysia", bg: "Logistik pemilu 5 lokasi.", obj: "100% Sukses operasional.", meth: "Gantt Schedule.", res: "Target 100% tercapai.", img: "pm.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"] }]
     }
 };
 
 function updatePage(key) {
     const d = pageData[key];
-    document.getElementById('name').innerText = "Fadila Utami";
     document.getElementById('role-title').innerText = d.role;
     document.getElementById('about-desc').innerText = d.about;
-    document.getElementById('exp-title').innerText = key === 'data' ? "PROJECT EXPERIENCE" : "WORKING EXPERIENCE";
-    
+
     // Contact
     document.getElementById('contact-content').innerHTML = `
         <div class="stack-item item-neutral"><span>Padang (Open Relocation)</span></div>
         <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></a>
         <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></a>`;
 
-    // Education
+    // Education (Format Rapi: Tingkat, Kampus, Bulan Tahun)
     document.getElementById('edu-content').innerHTML = `
-        <div class="stack-item item-primary"><b>Master of Science</b><span>UTM | Sep 2021 – Mar 2023</span></div>
-        <div class="stack-item item-neutral"><b>Bachelor's Degree</b><span>Univ. Pancasila | Aug 2014 – Sep 2018</span></div>
-        <div class="stack-item item-neutral"><b>FSDA Program</b><span>RevoU | Oct 2025 – Feb 2026</span></div>`;
+        <div class="stack-item item-primary">
+            <b>Master of Science Industrial Engineering</b>
+            <span>Universiti Teknologi Malaysia (UTM)</span>
+            <span>Sep 2021 – Mar 2023</span>
+        </div>
+        <div class="stack-item item-neutral">
+            <b>Bachelor's Degree Industrial Engineering</b>
+            <span>Universitas Pancasila</span>
+            <span>Aug 2014 – Sep 2018</span>
+        </div>`;
 
     // Certifications
     document.getElementById('cert-content').innerHTML = `
         <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
-        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
-        <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>`;
+        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>`;
 
-    // Projects
+    // Update Skills
+    document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
+    document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<div class="tag-box">${s}</div>`).join('');
+
+    // Update Projects
     document.getElementById('project-list').innerHTML = d.items.map((item, index) => `
         <div class="project-card-clickable" onclick="openModal('${key}', ${index})">
-            <div class="section-title" style="font-size: 0.6rem;">CLICK TO VIEW DETAILS</div>
             <h4>${item.t}</h4>
-            <div style="margin-top:10px;">${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
-        </div>
-    `).join('');
+            <div>${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
+        </div>`).join('');
 
     document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('nav-' + key).classList.add('active');
 }
 
-function openModal(key, index) {
-    const item = pageData[key].items[index];
+function openModal(k, i) {
+    const item = pageData[k].items[i];
     document.getElementById('m-title').innerText = item.t;
     document.getElementById('m-bg').innerText = item.bg;
     document.getElementById('m-obj').innerText = item.obj;
     document.getElementById('m-meth').innerText = item.meth;
     document.getElementById('m-res').innerText = item.res;
     document.getElementById('m-image').src = item.img;
-    document.getElementById('m-deck').href = item.deck;
-    document.getElementById('m-code').href = item.code;
     document.getElementById('projectModal').style.display = "block";
 }
 
 function closeModal() { document.getElementById('projectModal').style.display = "none"; }
-window.onclick = function(e) { if (e.target == document.getElementById('projectModal')) closeModal(); }
-
 updatePage('data');
 </script>
 </body>
