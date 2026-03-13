@@ -36,8 +36,8 @@
             align-items: center;
             padding-bottom: 20px;
         }
-        
-       .header h3 { color: var(--primary-green); margin: 0; font-size: 1.5rem; }
+
+        .header h3 { color: var(--primary-green); margin: 0; font-size: 1.5rem; }
 
         .role-nav {
             display: flex;
@@ -67,7 +67,7 @@
         /* BENTO GRID SYSTEM */
         .bento-grid {
             display: grid;
-            grid-template-columns: 320px 240px 1.2fr 1.2fr; /* Kolom contact diperkecil menjadi 240px */
+            grid-template-columns: 280px 220px 1.2fr 1.5fr; /* Foto dikecilkan ke 280px, Contact 220px */
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -116,6 +116,13 @@
         /* STACKED BOXES */
         .stack-container { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
         
+        /* Grid Khusus untuk Sertifikat (Dua Kolom Jajar) */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
         .stack-item {
             padding: 10px;
             border-radius: 10px;
@@ -134,7 +141,7 @@
         .item-neutral { background: var(--gray-box); border: 1px solid #ddd; }
         .item-neutral i { color: var(--secondary-green); font-size: 1rem; width: 18px; text-align: center; }
         .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
-        .item-neutral span { display: block; font-size: 0.75rem; color: #666; }
+        .item-neutral span { display: block; font-size: 0.7rem; color: #666; }
 
         /* SKILLS */
         .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 12px; }
@@ -199,7 +206,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="section-title">EDUCATION</div>
                 <div class="stack-container">
@@ -210,21 +217,14 @@
                     </div>
                     <div class="stack-item item-neutral">
                         <div>
-                        <b>Bachelor's Degree Industrial Engineering</b>
-                        <span>Universitas Pancasila</span>
-                        <span>Aug 2014 - Sep 2018</span>
-                    </div>
-                    <div class="stack-item item-neutral">
-                        <div>
                             <b>Full-stack Data Analytics</b>
-                            <span>RevoU</span>
-                            <span>Oct 2025 - Feb 2026</span>
+                            <span>RevoU | Oct 2025 - Feb 2026</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-<div class="card">
+            <div class="card">
                 <div class="section-title">CERTIFICATIONS</div>
                 <div class="cert-grid">
                     <div class="stack-item item-neutral">
@@ -248,7 +248,6 @@
                 <div class="section-title">TECHNICAL SKILLS</div>
                 <div class="tech-skills-list">
                     <div class="tech-icon"><i class="fa-solid fa-table"></i>Excel</div>
-                    <div class="tech-icon"><i class="fa-solid fa-table"></i>Spreadsheet</div>
                     <div class="tech-icon"><i class="fa-solid fa-database"></i>SQL</div>
                     <div class="tech-icon"><i class="fa-brands fa-python"></i>Python</div>
                     <div class="tech-icon"><i class="fa-solid fa-chart-column"></i>Power BI</div>
@@ -268,22 +267,22 @@
         <div class="section-title">PROJECT EXPERIENCE</div>
         <div class="project-grid">
             <div class="card project-card-inner">
-                <div class="section-title" style="font-size: 0.65rem;">REVOU (DEEPP)</div>
+                <div class="section-title" style="font-size: 0.6rem;">REVOU (DEEPP)</div>
                 <h4>Supergoop! Performance Analysis</h4>
-                <p>Extracted and cleaned 1M+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
+                <p>Extracted and Cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
                 <div><span class="tool-tag">Python</span><span class="tool-tag">Power BI</span><span class="tool-tag">EDA</span></div>
             </div>
             <div class="card project-card-inner">
-                <div class="section-title" style="font-size: 0.65rem;">REVOU (ASSIGNMENT)</div>
+                <div class="section-title" style="font-size: 0.6rem;">REVOU (ASSIGNMENT)</div>
                 <h4>RevoBank Customer Segmentation</h4>
-                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups for marketing strategies.</p>
+                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups.</p>
                 <div><span class="tool-tag">SQL</span><span class="tool-tag">Python</span><span class="tool-tag">K-Means</span></div>
             </div>
         </div>
     </div>
 
-    <div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Konten pengalaman Continuous Improvement Anda akan muncul di sini.</p></div></div>
-    <div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Konten pengalaman Project Management Anda akan muncul di sini.</p></div></div>
+    <div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Experience in process optimization and Lean principles.</p></div></div>
+    <div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Experience in project coordination and timeline management.</p></div></div>
 
 </div>
 
