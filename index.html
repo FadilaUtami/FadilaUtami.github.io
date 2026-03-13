@@ -67,9 +67,10 @@
         /* BENTO GRID SYSTEM */
         .bento-grid {
             display: grid;
-            grid-template-columns: 320px 0.8fr 1.2fr 1.2fr;
+            grid-template-columns: 320px 1fr 1.2fr 1.2fr;
             gap: 12px;
             margin-bottom: 12px;
+            align-items: start;
         }
 
         .card {
@@ -78,6 +79,7 @@
             border: 1px solid #e0e0e0;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            height: calc(100% - 30px); /* Memastikan tinggi kartu seimbang */
         }
 
         .section-title {
@@ -89,10 +91,11 @@
             font-weight: bold;
         }
 
-        /* PROFILE & ABOUT */
-        .profile-card { grid-row: span 2; padding: 0; overflow: hidden; background: #000; }
+        /* PROFILE */
+        .profile-card { grid-row: span 2; padding: 0; overflow: hidden; background: #000; height: 100%; }
         .profile-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+        /* ABOUT */
         .about-card { grid-column: span 3; position: relative; }
         .about-card h2 { color: var(--primary-green); margin: 0; font-size: 1.8rem; }
         .about-card .sub-role { color: var(--accent-gold); font-weight: bold; font-size: 1rem; margin-bottom: 10px; }
@@ -110,8 +113,9 @@
             font-weight: bold;
         }
 
-        /* STACKED BOXES */
-        .stack-container { display: flex; flex-direction: column; gap: 8px; }
+        /* STACKED BOXES (CONTACT, EDU, CERT) */
+        .stack-container { display: flex; flex-direction: column; gap: 8px; height: 100%; }
+        
         .stack-item {
             padding: 12px;
             border-radius: 10px;
@@ -121,13 +125,19 @@
             gap: 12px;
             text-decoration: none;
             color: inherit;
+            min-height: 45px; /* Menjaga konsistensi tinggi kotak */
         }
-        .item-primary { background: var(--primary-green); color: white; display: block; }
-        .item-primary b { color: var(--accent-gold); display: block; }
-        .item-neutral { background: var(--gray-box); border: 1px solid #ddd; }
-        .item-neutral i { color: var(--secondary-green); font-size: 1.1rem; width: 20px; text-align: center; }
 
-        /* SKILLS SECTION */
+        .item-primary { background: var(--primary-green); color: white; display: block; }
+        .item-primary b { color: var(--accent-gold); display: block; margin-bottom: 2px; }
+        .item-primary span { display: block; font-size: 0.75rem; color: #e0e0e0; }
+
+        .item-neutral { background: var(--gray-box); border: 1px solid #ddd; justify-content: flex-start; }
+        .item-neutral i { color: var(--secondary-green); font-size: 1.1rem; width: 20px; text-align: center; }
+        .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
+        .item-neutral span { display: block; font-size: 0.75rem; color: #666; }
+
+        /* SKILLS */
         .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 12px; }
         .tech-skills-list { display: flex; justify-content: space-around; align-items: center; padding: 10px 0; }
         .tech-icon { text-align: center; font-size: 0.7rem; color: #666; }
@@ -136,7 +146,7 @@
         .soft-skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .tag-box { background: var(--gray-box); padding: 10px; border-radius: 25px; font-size: 0.8rem; text-align: center; border: 1px solid #ddd; }
 
-        /* PROJECT SECTION */
+        /* PROJECTS */
         .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .project-card-inner h4 { color: var(--secondary-green); margin: 0 0 8px 0; font-size: 1rem; }
         .project-card-inner p { font-size: 0.8rem; color: #555; line-height: 1.5; margin-bottom: 12px; }
@@ -163,38 +173,67 @@
 
     <div id="data" class="role-content active">
         <div class="bento-grid">
-            <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
+            <div class="card profile-card"><img src="Profile.png" alt="Fadila Utami"></div>
             
             <div class="card about-card">
                 <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
                 <div class="section-title">ABOUT ME</div>
                 <h2>Fadila Utami</h2>
                 <div class="sub-role">DATA ANALYST</div>
-                <p>I am a Data Analyst with an Industrial Engineering background, passionate about leveraging data to drive business efficiency. I am eager to collaborate with teams to transform data into impactful strategies that align with organizational goals.</p>
+                <p>I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence[cite: 4]. I improved workflow efficiency by 30% through Lean principles[cite: 5, 19]. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights[cite: 6, 52].</p>
             </div>
 
             <div class="card">
                 <div class="section-title">CONTACT</div>
                 <div class="stack-container">
-                    <div class="stack-item item-neutral"><i class="fa-solid fa-location-dot"></i> Padang (Open to Relocation)</div>
-                    <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><i class="fa-solid fa-envelope"></i> fu.fadilautami@gmail.com</a>
+                    <div class="stack-item item-neutral">
+                        <i class="fa-solid fa-location-dot"></i> 
+                        <span>Padang (Open to Relocation)</span>
+                    </div>
+                    <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral">
+                        <i class="fa-brands fa-linkedin"></i> 
+                        <span>Linkedin</span>
+                    </a>
+                    <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral">
+                        <i class="fa-solid fa-envelope"></i> 
+                        <span>fu.fadilautami@gmail.com</span>
+                    </a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="section-title">EDUCATION</div>
                 <div class="stack-container">
-                    <div class="stack-item item-primary"><b>Master of Industrial Engineering</b> Universiti Teknologi Malaysia | 2021 - 2023</div>
-                    <div class="stack-item item-neutral"><div><b>Full-stack Data Analytics</b> RevoU | 2025 - 2026</div></div>
+                    <div class="stack-item item-primary">
+                        <b>Master of Science Industrial Engineering</b>
+                        <span>Universiti Teknologi Malaysia (UTM)</span>
+                        <span>2021 - 2023</span>
+                    </div>
+                    <div class="stack-item item-neutral">
+                        <div>
+                            <b>Full-stack Data Analytics</b>
+                            <span>RevoU</span>
+                            <span>2025 - 2026</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="section-title">CERTIFICATIONS</div>
                 <div class="stack-container">
-                    <div class="stack-item item-neutral"><div><b>Six Sigma Green Belt</b> Six Sigma Academy Amsterdam</div></div>
-                    <div class="stack-item item-neutral"><div><b>Data Analyst</b> Issued by Dsarea</div></div>
+                    <div class="stack-item item-neutral">
+                        <div>
+                            <b>Six Sigma Green Belt</b>
+                            <span>Six Sigma Academy Amsterdam</span>
+                        </div>
+                    </div>
+                    <div class="stack-item item-neutral">
+                        <div>
+                            <b>Project Management Professional</b>
+                            <span>Issued by Google</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,6 +243,7 @@
                 <div class="section-title">TECHNICAL SKILLS</div>
                 <div class="tech-skills-list">
                     <div class="tech-icon"><i class="fa-solid fa-table"></i>Excel</div>
+                    <div class="tech-icon"><i class="fa-solid fa-table"></i>Spreadsheet</div>
                     <div class="tech-icon"><i class="fa-solid fa-database"></i>SQL</div>
                     <div class="tech-icon"><i class="fa-brands fa-python"></i>Python</div>
                     <div class="tech-icon"><i class="fa-solid fa-chart-column"></i>Power BI</div>
