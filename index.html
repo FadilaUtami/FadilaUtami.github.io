@@ -1,466 +1,304 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fadila Utami Portfolio</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* Gaya Industrial dengan Garis Berwarna /
-:root {
-/ Palette Industrial & Berwarna /
---bg-industrial: #f4f4f4; / Abu-abu beton sangat terang /
---card-bg: #ffffff;
---text-main: #333333;
---text-muted: #666666;
---primary-color: #264653; / Biru Arsitektural Gelap /
---accent-green: #2a9d8f;  / Garis Hijau Teal /
---accent-orange: #f4a261; / Garis Oranye Sand /
---accent-red: #e76f51;    / Garis Merah Terakota */
---title-gold: #c5a059;
---border-muted: #dddddd;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadila Utami Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;    /* Hitam Industrial */
+            --accent-1: #004d40;   /* Hijau Deep */
+            --accent-2: #c5a059;   /* Gold Muted */
+            --accent-3: #e67e22;   /* Oranye Bata */
+            --bg: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray-border: #e0e0e0;
+        }
 
-        /* Font Industrial */
-        --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        --font-tech: 'Courier New', Courier, monospace; /* Untuk skill teknis */
-    }
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
 
-    body {
-        font-family: var(--font-main);
-        background: var(--bg-industrial);
-        margin: 0;
-        color: var(--text-main);
-        padding: 20px;
-        letter-spacing: 0.02em;
-    }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    .container {
-        width: 98%;
-        max-width: 1400px;
-        margin: auto;
-    }
+        /* HEADER & NAV */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
 
-    /* HEADER & NAVIGATION (Desain Minimalis) */
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 25px;
-        border-bottom: 2px solid var(--border-muted);
-        margin-bottom: 20px;
-    }
+        .logo-area h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; text-transform: uppercase; }
+        .logo-area p { margin: 0; font-weight: 600; color: var(--accent-1); }
 
-    .header h3 { 
-        color: var(--primary-color); 
-        margin: 0; 
-        font-size: 1.6rem; 
-        font-weight: 700;
-        text-transform: uppercase;
-    }
+        .role-nav { display: flex; gap: 5px; }
+        .role-btn {
+            background: none;
+            border: 1px solid var(--gray-border);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .role-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-    .role-nav {
-        display: flex;
-        gap: 10px;
-    }
+        /* BENTO GRID */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
 
-    .role-btn {
-        border: 1px solid var(--border-muted);
-        padding: 8px 20px;
-        border-radius: 4px; /* Industrial lebih kotak */
-        cursor: pointer;
-        font-weight: 600;
-        background: #fff;
-        color: var(--text-muted);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        transition: all 0.3s ease;
-    }
+        .card {
+            border: 1px solid var(--gray-border);
+            padding: 25px;
+            position: relative;
+            background: white;
+            transition: transform 0.3s ease;
+        }
 
-    .role-btn:hover {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-    }
+        .card:hover { border-color: var(--primary); }
 
-    .role-btn.active {
-        background: var(--primary-color);
-        color: white;
-        border-color: var(--primary-color);
-    }
+        /* Garis Warna Atas (Industrial Accent) */
+        .line-top { position: absolute; top: 0; left: 0; width: 100%; height: 5px; }
+        .bg-green { background-color: var(--accent-1); }
+        .bg-gold { background-color: var(--accent-2); }
+        .bg-orange { background-color: var(--accent-3); }
 
-    /* BENTO GRID SYSTEM DENGAN GARIS BERWARNA */
-    .content-wrapper {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 15px;
-        margin-bottom: 15px;
-    }
+        /* PROFILE */
+        .profile-card { grid-row: span 2; padding: 0; border: none; }
+        .profile-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
 
-    .card {
-        background: var(--card-bg);
-        border-radius: 4px; /* Kotak */
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Shadow halus */
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--border-muted);
-    }
+        /* ABOUT */
+        .about-card { grid-column: span 2; }
+        .about-card h2 { margin: 0 0 15px 0; font-size: 1.8rem; }
+        .about-card p { font-size: 1rem; color: #444; }
 
-    /* AKSEN GARIS BERWARNA DI ATAS KARTU */
-    .card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px; /* Ketebalan garis berwarna */
-    }
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-    .section-title {
-        color: var(--title-gold);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 15px;
-        font-weight: 700;
-    }
+        /* INFO LISTS */
+        .info-item { margin-bottom: 15px; font-size: 0.9rem; }
+        .info-item b { display: block; font-size: 0.95rem; color: var(--primary); }
+        .info-item span { display: block; color: #666; font-style: italic; font-size: 0.8rem; }
 
-    /* PENEMPATAN KARTU (Layout Bento) */
-    
-    /* 1. Profile */
-    .profile-card { 
-        grid-column: span 3; 
-        grid-row: span 2; 
-        padding: 0; 
-        background: #000; 
-        border: 1px solid #ddd;
-    }
-    .profile-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .profile-card::before { background: var(--accent-green); } /* Garis Hijau Teal */
+        /* SKILLS AREA */
+        .skills-section {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
 
-    /* 2. About Me */
-    .about-card { 
-        grid-column: span 9; 
-        position: relative; 
-    }
-    .about-card h2 { color: var(--primary-color); margin: 0; font-size: 2rem; font-weight: 700;}
-    .about-card .sub-role { color: var(--title-gold); font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; }
-    .about-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
-    .about-card::before { background: var(--accent-orange); } /* Garis Oranye Sand */
+        .tech-list { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 10px; }
+        .tech-box { text-align: center; width: 70px; }
+        .tech-box i { font-size: 1.8rem; display: block; margin-bottom: 5px; color: var(--accent-1); }
+        .tech-box span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
 
-    .download-cv {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        border: 1px solid var(--accent-orange);
-        color: var(--accent-orange);
-        padding: 7px 18px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-    }
-    .download-cv:hover {
-        background: var(--accent-orange);
-        color: #fff;
-    }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { border: 1px solid var(--primary); padding: 5px 12px; font-size: 0.8rem; font-weight: 600; }
 
-    /* Kartu Rata Kanan (Contact, Edu, Cert) */
-    .stack-container { display: flex; flex-direction: column; gap: 10px; }
-    
-    .stack-item {
-        padding: 12px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-        color: inherit;
-        border: 1px solid var(--border-muted);
-    }
+        /* PROJECTS */
+        .projects-header { 
+            margin-top: 50px; 
+            border-top: 2px solid var(--primary); 
+            padding-top: 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
 
-    /* 3. Contact */
-    .contact-card { grid-column: span 3; }
-    .contact-card::before { background: var(--accent-green); } /* Garis Hijau Teal */
-    .contact-card .stack-item i { color: var(--accent-green); font-size: 1.1rem; }
-    
-    /* 4. Education */
-    .edu-card { grid-column: span 3; }
-    .edu-card::before { background: var(--accent-orange); } /* Garis Oranye Sand */
-    .edu-card .stack-item.item-primary { 
-        background: var(--primary-color); 
-        color: white; 
-        border-color: var(--primary-color);
-        display: block;
-    }
-    .edu-card .stack-item.item-primary b { color: var(--title-gold); display: block; margin-bottom: 3px;}
-    .edu-card .stack-item b { color: var(--primary-color); display: block; margin-bottom: 3px; }
-    .edu-card .stack-item span { font-size: 0.75rem; color: var(--text-muted); display: block;}
-    .edu-card .stack-item.item-primary span { color: #ccc; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-    /* 5. Certifications */
-    .cert-card { grid-column: span 3; }
-    .cert-card::before { background: var(--accent-red); } /* Garis Merah Terakota */
-    .cert-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    .cert-card .stack-item b { color: var(--primary-color); display: block; }
-    .cert-card .stack-item span { color: var(--accent-red); font-size: 0.75rem; font-weight: 600;}
+        .project-card { border-left: 5px solid var(--accent-3); background: var(--gray-light); }
+        .project-card h4 { margin: 0 0 10px 0; color: var(--primary); }
+        .project-card p { font-size: 0.85rem; margin-bottom: 15px; }
 
-    /* SKILLS SECTION (Industrial Styling) */
-    .skills-row {
-        display: grid;
-        grid-template-columns: 1.2fr 2fr;
-        gap: 15px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    
-    /* Kartu Tech Skills */
-    .tech-skills-card::before { background: var(--accent-green); }
-    .tech-skills-list {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 15px 0;
-    }
-    .tech-icon {
-        text-align: center;
-        font-size: 0.7rem;
-        color: var(--text-muted);
-        font-family: var(--font-tech);
-        text-transform: uppercase;
-    }
-    .tech-icon i {
-        font-size: 2rem;
-        color: var(--accent-green);
-        display: block;
-        margin-bottom: 8px;
-    }
+        .btn-cv {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
 
-    /* Kartu Soft Skills */
-    .soft-skills-card::before { background: var(--accent-orange); }
-    .tag-box {
-        background: #fff;
-        padding: 10px 18px;
-        border-radius: 25px; /* Tetap bulat untuk tag */
-        font-size: 0.8rem;
-        text-align: center;
-        border: 1px solid var(--border-muted);
-        margin-right: 8px;
-        margin-bottom: 8px;
-        display: inline-block;
-        font-weight: 600;
-        color: var(--primary-color);
-    }
+        .btn-cv:hover { background: var(--accent-1); }
 
-    /* PROJECT EXPERIENCE */
-    .project-section-title {
-        color: var(--accent-red);
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-top: 25px;
-        margin-bottom: 15px;
-        font-weight: 700;
-        border-left: 4px solid var(--accent-red);
-        padding-left: 10px;
-    }
-    
-    .project-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-    
-    .project-card-inner {
-        background: #fff;
-        border-radius: 4px;
-        border: 1px solid var(--border-muted);
-        padding: 20px;
-        position: relative;
-        overflow: hidden;
-    }
-    .project-card-inner::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 4px; /* Garis berwarna di samping */
-        background: var(--accent-red);
-    }
-
-    .project-card-inner h4 { color: var(--secondary-green); margin: 0 0 10px 0; font-size: 1.1rem; font-weight: 700;}
-    .project-card-inner p { font-size: 0.85rem; color: var(--text-main); line-height: 1.5; margin-bottom: 15px;}
-    .tool-tag {
-        font-size: 0.7rem;
-        background: var(--bg-industrial);
-        padding: 4px 10px;
-        border-radius: 4px;
-        margin-right: 6px;
-        color: var(--accent-red);
-        font-weight: 700;
-        border: 1px solid #ddd;
-        font-family: var(--font-tech);
-    }
-
-    /* TAB LOGIC */
-    .role-content { display: none; }
-    .role-content.active { display: block; }
-
-</style>
+    </style>
 </head>
 <body>
 
 <div class="container">
-<div class="header">
-<h3>My Portfolio</h3>
-<div class="role-nav">
-<button class="role-btn active" onclick="showTab('data')">DATA ANALYST</button>
-<button class="role-btn" onclick="showTab('ci')">CONTINUOUS IMPROVEMENT</button>
-<button class="role-btn" onclick="showTab('pm')">PROJECT MANAGEMENT</button>
-</div>
-<div style="font-weight: bold; color: var(--accent-gold); font-size: 0.9rem;">EN | <span style="color:#ccc">ID</span></div>
-</div>
+    <header>
+        <div class="logo-area">
+            <h1>Fadila Utami</h1>
+            <p id="sub-title">Data Analyst</p>
+        </div>
+        <div class="role-nav">
+            <button class="role-btn active" onclick="changeRole('data', this)">Data Analyst</button>
+            <button class="role-btn" onclick="changeRole('ci', this)">Continuous Improvement</button>
+            <button class="role-btn" onclick="changeRole('pm', this)">Project Management</button>
+        </div>
+    </header>
 
-<div id="data" class="role-content active">
-    <div class="content-wrapper bento-grid">
-        <div class="card profile-card"><img src="Profile.png" alt="Fadila Utami"></div>
-        
+    <div class="bento-grid">
+        <div class="card profile-card">
+            <img src="Profile.png" alt="Profile">
+        </div>
+
         <div class="card about-card">
-            <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
-            <div class="section-title">ABOUT ME</div>
-            <h2>Fadila Utami</h2>
-            <div class="sub-role">DATA ANALYST</div>
-            <p>
-                I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I improved workflow efficiency by 30% through Lean principles. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.
+            <div class="line-top bg-gold"></div>
+            <span class="section-label">Summary</span>
+            <p id="about-text">
+                I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I master SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.
             </p>
+            <a href="fadila utami (Revisi)(W2).pdf" class="btn-cv" target="_blank">Download Curriculum Vitae</a>
         </div>
 
-        <div class="card contact-card">
-            <div class="section-title">CONTACT</div>
-            <div class="stack-container">
-                <div class="stack-item item-neutral">
-                    <i class="fa-solid fa-location-dot"></i> 
-                    <span>Padang (Open to Relocation)</span>
-                </div>
-                <a href="[https://linkedin.com/in/fadila-utami](https://linkedin.com/in/fadila-utami)" target="_blank" class="stack-item item-neutral">
-                    <i class="fa-brands fa-linkedin"></i> 
-                    <span>Linkedin</span>
-                </a>
-                <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral">
-                    <i class="fa-solid fa-envelope"></i> 
-                    <span>fu.fadilautami@gmail.com</span>
-                </a>
+        <div class="card">
+            <div class="line-top bg-green"></div>
+            <span class="section-label">Contact</span>
+            <div class="info-item"><b>Location</b> Padang (Open to Relocation)</div>
+            <div class="info-item"><b>Email</b> fu.fadilautami@gmail.com</div>
+            <div class="info-item"><b>LinkedIn</b> linkedin.com/in/fadila-utami</div>
+        </div>
+
+        <div class="card">
+            <div class="line-top bg-orange"></div>
+            <span class="section-label">Education</span>
+            <div class="info-item">
+                <b>Master of Science Industrial Engineering</b>
+                Universiti Teknologi Malaysia (UTM)
+                <span>2021 – 2023</span>
             </div>
-        </div>
-
-        <div class="card edu-card">
-            <div class="section-title">EDUCATION</div>
-            <div class="stack-container">
-                <div class="stack-item item-primary">
-                    <b>Master of Science Industrial Engineering</b>
-                    <span>Universiti Teknologi Malaysia (UTM)</span>
-                    <span>2021 – 2023</span>
-                </div>
-                <div class="stack-item item-neutral">
-                    <div>
-                        <b>Bachelor of Industrial Engineering</b>
-                        <span>Universitas Pancasila</span>
-                        <span>2014 – 2018</span>
-                    </div>
-                </div>
-                <div class="stack-item item-neutral">
-                    <div>
-                        <b>Full stack Data Analytics Program</b>
-                        <span>RevoU</span>
-                        <span>2025 – 2026</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card cert-card">
-            <div class="section-title">CERTIFICATIONS</div>
-            <div class="stack-container cert-grid">
-                <div class="stack-item item-neutral">
-                    <div>
-                        <b>Full-stack Data Analytics</b>
-                        <span>Issued by RevoU</span>
-                    </div>
-                </div>
-                <div class="stack-item item-neutral">
-                    <div>
-                        <b>Six Sigma Green Belt</b>
-                        <span>Amsterdam Academy</span>
-                    </div>
-                </div>
-                <div class="stack-item item-neutral">
-                    <div>
-                        <b>Project Management</b>
-                        <span>Issued by Google</span>
-                    </div>
-                </div>
+            <div class="info-item">
+                <b>Bachelor of Industrial Engineering</b>
+                Universitas Pancasila
+                <span>2014 – 2018</span>
             </div>
         </div>
     </div>
 
-    <div class="skills-row">
-        <div class="card tech-skills-card">
-            <div class="section-title">TECHNICAL SKILLS</div>
-            <div class="tech-skills-list">
-                <div class="tech-icon"><i class="fa-solid fa-table"></i>Excel</div>
-                <div class="tech-icon"><i class="fa-solid fa-database"></i>SQL</div>
-                <div class="tech-icon"><i class="fa-brands fa-python"></i>Python</div>
-                <div class="tech-icon"><i class="fa-solid fa-chart-column"></i>Power BI</div>
-                <div class="tech-icon"><i class="fa-solid fa-chart-line"></i>Tableau</div>
+    <div id="dynamic-content">
+        <div class="skills-section">
+            <div class="card">
+                <span class="section-label">Technical Stack</span>
+                <div class="tech-list">
+                    <div class="tech-box"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+                    <div class="tech-box"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="tech-box"><i class="fa-solid fa-chart-column"></i><span>Power BI</span></div>
+                    <div class="tech-box"><i class="fa-solid fa-chart-line"></i><span>Tableau</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="section-label">Expertise</span>
+                <div class="tag-container" id="soft-skills">
+                    <div class="tag">Analytical Problem Solving</div>
+                    <div class="tag">Data Storytelling</div>
+                    <div class="tag">Cross-Functional Collaboration</div>
+                </div>
             </div>
         </div>
-        <div class="card soft-skills-card">
-            <div class="section-title">SOFT SKILLS</div>
-            <div class="soft-skills-grid">
-                <div class="tag-box">Analytical Problem Solving</div>
-                <div class="tag-box">Data Storytelling</div>
-                <div class="tag-box">Systems Thinking</div>
-                <div class="tag-box">Cross-Functional Collaboration</div>
+
+        <div class="projects-header">Selected Projects</div>
+        <div class="project-grid" id="project-list">
+            <div class="card project-card">
+                <h4>Supergoop! Performance Analysis</h4>
+                <p>Extracted and cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
+                <div class="tag">Python</div> <div class="tag">Power BI</div>
+            </div>
+            <div class="card project-card">
+                <h4>RevoBank Customer Segmentation</h4>
+                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups.</p>
+                <div class="tag">SQL</div> <div class="tag">K-Means</div>
             </div>
         </div>
     </div>
-
-    <div class="project-section-title">PROJECT EXPERIENCE</div>
-    <div class="project-grid">
-        <div class="project-card-inner">
-            <div class="section-title" style="font-size: 0.6rem;">REVOU (DEEPP)</div>
-            <h4>Supergoop! Performance Analysis</h4>
-            <p>Extracted and Cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
-            <div><span class="tool-tag">Python</span><span class="tool-tag">Power BI</span><span class="tool-tag">EDA</span></div>
-        </div>
-        <div class="project-card-inner">
-            <div class="section-title" style="font-size: 0.6rem;">REVOU (ASSIGNMENT)</div>
-            <h4>RevoBank Customer Segmentation</h4>
-            <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups for targeted campaigns.</p>
-            <div><span class="tool-tag">SQL</span><span class="tool-tag">Python</span><span class="tool-tag">K-Means</span></div>
-        </div>
-    </div>
-</div>
-
-<div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Pengalaman profesional dalam optimasi proses...</p></div></div>
-<div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Pengalaman dalam koordinasi proyek...</p></div></div>
 </div>
 
 <script>
-function showTab(tabId) {
-document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
-document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    const dataContent = {
+        data: {
+            title: "Data Analyst",
+            about: "I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I master SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.",
+            soft: ["Analytical Problem Solving", "Data Storytelling", "Structured Thinking"],
+            projects: [
+                {t: "Supergoop! Analysis", d: "Extracted 1M+ reviews using Python to identify sentiment drivers."},
+                {t: "RevoBank Segmentation", d: "Used K-Means Clustering to drive personalized marketing strategies."}
+            ]
+        },
+        ci: {
+            title: "CI Specialist",
+            about: "Process optimization expert with a focus on Lean Manufacturing. Improved workflow efficiency by 30% through Root Cause Analysis (RCA) and Process Mapping.",
+            soft: ["Lean Manufacturing", "Root Cause Analysis", "Operational Excellence"],
+            projects: [
+                {t: "Workflow Optimization", d: "Implemented Lean principles to reduce waste in property operations."},
+                {t: "Standardization Project", d: "Developed SOPs to ensure data integrity across multi-site operations."}
+            ]
+        },
+        pm: {
+            title: "Project Management",
+            about: "Experienced in coordinating complex projects using Gantt schedules. Successfully managed cross-functional teams in high-pressure environments.",
+            soft: ["Timeline Management", "Stakeholder Alignment", "Gantt Scheduling"],
+            projects: [
+                {t: "Election Coordination", d: "Managed logistics and personnel for multi-site operations with 100% success."},
+                {t: "RevoFinance Dashboard", d: "Led the development of budget tracking tools for IDR 509M expenses."}
+            ]
+        }
+    };
 
-    document.getElementById(tabId).classList.add(&#39;active&#39;);
-    event.currentTarget.classList.add(&#39;active&#39;);
-}
+    function changeRole(role, btn) {
+        const item = dataContent[role];
+        document.getElementById('sub-title').innerText = item.title;
+        document.getElementById('about-text').innerText = item.about;
+        
+        // Update tags
+        document.getElementById('soft-skills').innerHTML = item.soft.map(s => `<div class="tag">${s}</div>`).join('');
+        
+        // Update projects
+        document.getElementById('project-list').innerHTML = item.projects.map(p => `
+            <div class="card project-card">
+                <h4>${p.t}</h4>
+                <p>${p.d}</p>
+                <div class="tag">Management</div>
+            </div>
+        `).join('');
+
+        // Buttons
+        document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
 </script>
 
 </body>
