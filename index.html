@@ -24,9 +24,10 @@
         .role-btn { border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; background: transparent; color: #666; font-size: 0.8rem; transition: 0.3s; }
         .role-btn.active { background: var(--primary-green); color: white; }
 
-        /* BENTO GRID - RATA KANAN (4 KOLOM) */
+        /* BENTO GRID - SUSUNAN RATA KANAN (HORIZONTAL) */
         .bento-grid { 
             display: grid; 
+            /* 4 Kolom: Foto (280px), Contact (240px), Education (Flexible), Certifications (Flexible) */
             grid-template-columns: 280px 240px 1fr 1fr; 
             gap: 12px; 
             margin-bottom: 15px; 
@@ -88,6 +89,7 @@
 
     <div class="bento-grid">
         <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
+        
         <div class="card about-card">
             <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
             <div class="section-title">ABOUT ME</div>
@@ -142,9 +144,9 @@
                 <b>Result:</b> <span id="m-res"></span>
             </div>
         </div>
-        <div class="modal-links">
-            <a id="m-deck" href="#" target="_blank" style="color:red; font-weight:bold;">View Deck (PPT)</a> | 
-            <a id="m-code" href="#" target="_blank" style="color:blue; font-weight:bold;">BigQuery / Colab</a>
+        <div class="modal-links" style="margin-top:20px; border-top:1px solid #ddd; padding-top:15px;">
+            <a id="m-deck" href="#" target="_blank" style="color:red; font-weight:bold; text-decoration:none;">View Deck (PPT)</a> | 
+            <a id="m-code" href="#" target="_blank" style="color:blue; font-weight:bold; text-decoration:none;">BigQuery / Colab</a>
         </div>
     </div>
 </div>
@@ -155,27 +157,27 @@ const pageData = {
         role: "DATA ANALYST",
         about: "Data Analyst dengan latar belakang Teknik Industri. Ahli dalam mentransformasi data mentah menjadi wawasan strategis menggunakan SQL, Python, dan Visualisasi Data.",
         tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
-        soft: ["Analytical Problem Solving", "Data Storytelling", "Collaboration"],
+        soft: ["Analytical Problem Solving", "Data Storytelling", "Structured Thinking"],
         items: [
             { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python (Google Colab) & Power BI.", res: "76% Positif.", img: "sg.jpg", deck: "#", code: "#", tools: ["Python", "Power BI"] },
             { t: "RevoBank Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "Python (Pandas, Scikit-Learn).", res: "3 Persona Teridentifikasi.", img: "rb.jpg", deck: "#", code: "#", tools: ["SQL", "Python"] },
-            { t: "RevoGrocers Sales Performance", bg: "Realokasi sumber daya kategori.", obj: "Identifikasi revenue driver.", meth: "SQL (BigQuery).", res: "Meat & Confections pendorong utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
-            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard pengeluaran interaktif.", meth: "Tableau.", res: "Visualisasi Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }
+            { t: "RevoGrocers Sales Analysis", bg: "Realokasi sumber daya kategori.", obj: "Identifikasi revenue driver.", meth: "SQL (BigQuery).", res: "Meat & Confections pendorong utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
+            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard interaktif.", meth: "Tableau.", res: "Track Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }
         ]
     },
     ci: {
-        role: "CONTINUOUS IMPROVEMENT ANALYST",
-        about: "Expert in process optimization. Improved workflow efficiency by 30% melalui Lean principles.",
+        role: "CONTINUOUS IMPROVEMENT",
+        about: "Berfokus pada efisiensi operasional dan optimasi proses melalui prinsip Lean Manufacturing.",
         tech: [{n:"Process Mapping", i:"fa-diagram-project"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Lean Tools", i:"fa-gears"}],
-        soft: ["Systems Thinking", "Root Cause Analysis", "Operational Excellence"],
-        items: [{ t: "Working Exp: Property Operations", bg: "Inefisiensi alur kerja.", obj: "Optimasi proses Lean.", meth: "RCA & SOP Standar.", res: "Efisiensi +30%.", img: "ci.jpg", deck: "#", code: "#", tools: ["Lean", "RCA"] }]
+        soft: ["Systems Thinking", "Root Cause Analysis", "Lean Manufacturing"],
+        items: [{ t: "Working Exp: Property Operations", bg: "Inefisiensi alur kerja lintas fungsi.", obj: "Optimasi proses Lean.", meth: "RCA & SOP Standar.", res: "Efisiensi +30%.", img: "ci.jpg", deck: "#", code: "#", tools: ["Lean", "RCA"] }]
     },
     pm: {
         role: "PROJECT MANAGEMENT",
         about: "Mengoordinasikan proyek kompleks dan mengelola lini masa menggunakan jadwal Gantt.",
-        tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Management", i:"fa-tasks"}],
-        soft: ["Timeline Management", "Stakeholder Alignment", "Coordination"],
-        items: [{ t: "Working Exp: KPU Malaysia", bg: "Logistik pemilu 5 lokasi.", obj: "100% Sukses operasional.", meth: "Gantt Schedule.", res: "Target 100% tercapai.", img: "pm.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"] }]
+        tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Coordination", i:"fa-tasks"}],
+        soft: ["Timeline Management", "Stakeholder Alignment", "Strategic Coordination"],
+        items: [{ t: "Working Exp: KPU Malaysia", bg: "Logistik pemilu di 5 lokasi.", obj: "100% Sukses operasional.", meth: "Gantt Project Schedule.", res: "Target tercapai 100%.", img: "pm.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"] }]
     }
 };
 
@@ -190,7 +192,7 @@ function updatePage(key) {
         <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></a>
         <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></a>`;
 
-    // Education (Format Rapi: Tingkat, Kampus, Bulan Tahun)
+    // Education (Format Rapi sesuai permintaan)
     document.getElementById('edu-content').innerHTML = `
         <div class="stack-item item-primary">
             <b>Master of Science Industrial Engineering</b>
@@ -201,12 +203,18 @@ function updatePage(key) {
             <b>Bachelor's Degree Industrial Engineering</b>
             <span>Universitas Pancasila</span>
             <span>Aug 2014 – Sep 2018</span>
+        </div>
+        <div class="stack-item item-neutral">
+            <b>Full stack Data Analytics Program</b>
+            <span>RevoU</span>
+            <span>Oct 2025 – Feb 2026</span>
         </div>`;
 
     // Certifications
     document.getElementById('cert-content').innerHTML = `
         <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
-        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>`;
+        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
+        <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>`;
 
     // Update Skills
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
@@ -215,6 +223,7 @@ function updatePage(key) {
     // Update Projects
     document.getElementById('project-list').innerHTML = d.items.map((item, index) => `
         <div class="project-card-clickable" onclick="openModal('${key}', ${index})">
+            <div class="section-title" style="font-size: 0.6rem;">CLICK FOR DETAILS</div>
             <h4>${item.t}</h4>
             <div>${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
         </div>`).join('');
