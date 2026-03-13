@@ -67,7 +67,7 @@
         /* BENTO GRID SYSTEM */
         .bento-grid {
             display: grid;
-            grid-template-columns: 320px 240px 1.2fr 1.2fr; /* Kolom contact diperkecil menjadi 240px */
+            grid-template-columns: 280px 220px 1.2fr 1.5fr;
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -134,7 +134,10 @@
         .item-neutral { background: var(--gray-box); border: 1px solid #ddd; }
         .item-neutral i { color: var(--secondary-green); font-size: 1rem; width: 18px; text-align: center; }
         .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
-        .item-neutral span { display: block; font-size: 0.75rem; color: #666; }
+        .item-neutral span { display: block; font-size: 0.7rem; color: #666; }
+
+        /* CERTIFICATIONS GRID */
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
         /* SKILLS */
         .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 12px; }
@@ -179,7 +182,9 @@
                 <div class="section-title">ABOUT ME</div>
                 <h2>Fadila Utami</h2>
                 <div class="sub-role">DATA ANALYST</div>
-                <p style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence[cite: 4]. I improved workflow efficiency by 30% through Lean principles[cite: 5]. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights[cite: 6].</p>
+                <p style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">
+                    I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I improved workflow efficiency by 30% through Lean principles. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.
+                </p>
             </div>
 
             <div class="card">
@@ -200,67 +205,48 @@
                 </div>
             </div>
 
-<div class="card">
-    <div class="section-title">EDUCATION</div>
-    <div class="stack-container">
-        <div class="stack-item item-primary">
-            <b>Master of Science Industrial Engineering</b>
-            <span>Universiti Teknologi Malaysia (UTM)</span>
-            <i style="font-size: 0.7rem; display: block; margin: 4px 0;">"Implementation QR Code to Make Quality Improvements Using the AppSheet Application"</i>
-            <span>Sep 2021 – Mar 2023</span>
-        </div>
+            <div class="card">
+                <div class="section-title">EDUCATION</div>
+                <div class="stack-container">
+                    <div class="stack-item item-primary">
+                        <b>Master of Science Industrial Engineering</b>
+                        <span>Universiti Teknologi Malaysia (UTM)</span>
+                        <i style="font-size: 0.65rem; display: block; margin: 4px 0; color: #e0e0e0;">"Implementation QR Code to Make Quality Improvements Using the AppSheet Application"</i>
+                        <span>Sep 2021 – Mar 2023</span>
+                    </div>
+                    <div class="stack-item item-neutral">
+                        <div>
+                            <b>Bachelor’s Degree Industrial Engineering</b>
+                            <span>Universitas Pancasila</span>
+                            <i style="font-size: 0.65rem; display: block; margin: 4px 0; color: #666;">"Application of the AHP Method in Selecting a Strategy to Reduce ISPA Exposure"</i>
+                            <span>Aug 2014 – Sep 2018</span>
+                        </div>
+                    </div>
+                    <div class="stack-item item-neutral">
+                        <div>
+                            <b>Full stack Data Analytics Program</b>
+                            <span>RevoU</span>
+                            <span style="font-size: 0.65rem; display: block; color: #666;">Hands-on experience in Excel, SQL, and Python (cleaning, EDA, modeling).</span>
+                            <span>Oct 2025 – Feb 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Bachelor’s Degree Industrial Engineering</b>
-                <span>Universitas Pancasila</span>
-                <i style="font-size: 0.7rem; display: block; margin: 4px 0; color: #666;">"Application of the AHP Method in Selecting a Strategy to Reduce ISPA Exposure"</i>
-                <span>Aug 2014 – Sep 2018</span>
+            <div class="card">
+                <div class="section-title">CERTIFICATIONS</div>
+                <div class="stack-container">
+                    <div class="cert-grid">
+                        <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
+                        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
+                    </div>
+                    <div class="cert-grid">
+                        <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>
+                        <div class="stack-item item-neutral"><b>Data Analyst</b><span>Dsarea</span></div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Full stack Data Analytics Program</b>
-                <span>RevoU</span>
-                <span style="font-size: 0.7rem; color: #666; margin-top: 4px;">Hands-on experience in Excel, SQL, and Python (cleaning, EDA, modeling).</span>
-                <span>Oct 2025 – Feb 2026</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="card">
-    <div class="section-title">CERTIFICATIONS</div>
-    <div class="cert-grid">
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Full-stack Data Analytics</b>
-                <span>Issued by RevoU</span>
-            </div>
-        </div>
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Six Sigma Green Belt</b>
-                <span>Six Sigma Academy Amsterdam</span>
-            </div>
-        </div>
-    </div>
-    <div class="cert-grid" style="margin-top: 10px;">
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Project Management</b>
-                <span>Issued by Google</span>
-            </div>
-        </div>
-        <div class="stack-item item-neutral">
-            <div>
-                <b>Data Analyst</b>
-                <span>Issued by Dsarea</span>
-            </div>
-        </div>
-    </div>
-</div>
 
         <div class="skills-row">
             <div class="card">
@@ -288,28 +274,36 @@
             <div class="card project-card-inner">
                 <div class="section-title" style="font-size: 0.6rem;">REVOU (DEEPP)</div>
                 <h4>Supergoop! Performance Analysis</h4>
-                <p>Extracted and Cleaned 1 million+ customer reviews using Python[cite: 36]. Developed Power BI dashboards to visualize sentiment drivers[cite: 38].</p>
+                <p>Extracted and Cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
                 <div><span class="tool-tag">Python</span><span class="tool-tag">Power BI</span><span class="tool-tag">EDA</span></div>
             </div>
             <div class="card project-card-inner">
                 <div class="section-title" style="font-size: 0.6rem;">REVOU (ASSIGNMENT)</div>
                 <h4>RevoBank Customer Segmentation</h4>
-                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups[cite: 49].</p>
+                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups for targeted campaigns.</p>
                 <div><span class="tool-tag">SQL</span><span class="tool-tag">Python</span><span class="tool-tag">K-Means</span></div>
             </div>
         </div>
     </div>
 
-    <div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Pengalaman optimasi proses dan prinsip Lean.</p></div></div>
-    <div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Pengalaman koordinasi proyek dan manajemen lini masa.</p></div></div>
-
+    <div id="ci" class="role-content">
+        <div class="card">
+            <h2>Continuous Improvement</h2>
+            <p>Pengalaman profesional dalam optimasi proses menggunakan prinsip Lean Manufacturing dan Six Sigma.</p>
+        </div>
+    </div>
+    <div id="pm" class="role-content">
+        <div class="card">
+            <h2>Project Management</h2>
+            <p>Pengalaman dalam koordinasi proyek, manajemen lini masa, dan kolaborasi lintas fungsi.</p>
+        </div>
+    </div>
 </div>
 
 <script>
     function showTab(tabId) {
-        document.querySelectorAll('.role-content').forEach(content => content.classList.remove('active'));
-        document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-        
+        document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         event.currentTarget.classList.add('active');
     }
