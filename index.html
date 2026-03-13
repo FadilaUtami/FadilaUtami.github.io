@@ -19,7 +19,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-light);
             margin: 0;
-            color: #333;
             padding: 20px;
         }
 
@@ -64,11 +63,10 @@
             color: white;
         }
 
-        /* BENTO GRID SYSTEM - FIXED RATA KANAN */
+        /* BENTO GRID */
         .bento-grid {
             display: grid;
-            /* Kolom 1 (Foto) tetap, kolom lainnya fleksibel (1fr) untuk rata kanan */
-            grid-template-columns: 280px 1fr 1fr 1fr; 
+            grid-template-columns: 280px 240px 1.2fr 1.5fr;
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -76,9 +74,9 @@
         .card {
             background: var(--white);
             border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            border: 3.5px solid var(--primary-green);
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
         }
@@ -92,73 +90,42 @@
             font-weight: bold;
         }
 
-        /* PROFILE */
+        /* PROFILE, ABOUT, CONTACT, EDUCATION, CERT (Statis) */
         .profile-card { grid-row: span 2; padding: 0; overflow: hidden; background: #000; }
         .profile-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* ABOUT - Melebar di atas */
         .about-card { grid-column: span 3; position: relative; }
         .about-card h2 { color: var(--primary-green); margin: 0; font-size: 1.8rem; }
         .about-card .sub-role { color: var(--accent-gold); font-weight: bold; font-size: 1rem; margin-bottom: 10px; }
-
-        .download-cv {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            border: 1px solid var(--primary-green);
-            color: var(--primary-green);
-            padding: 6px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        /* STACKED BOXES */
+        .download-cv { position: absolute; top: 15px; right: 15px; border: 1.5px solid var(--primary-green); color: var(--primary-green); padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
         .stack-container { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
-        
-        .stack-item {
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .item-primary { background: var(--primary-green); color: white; display: block; }
+        .stack-item { padding: 10px; border-radius: 10px; font-size: 0.8rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; background: var(--gray-box); border: 1px solid #ddd; }
+        .item-primary { background: var(--primary-green); color: white; border-color: var(--primary-green); display: block; }
         .item-primary b { color: var(--accent-gold); display: block; margin-bottom: 2px; }
-        .item-primary span { display: block; font-size: 0.7rem; color: #e0e0e0; }
-
-        .item-neutral { background: var(--gray-box); border: 1px solid #ddd; }
-        .item-neutral i { color: var(--secondary-green); font-size: 1rem; width: 18px; text-align: center; }
         .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
-        .item-neutral span { display: block; font-size: 0.7rem; color: #666; }
+        .item-neutral i { color: var(--secondary-green); font-size: 1rem; width: 18px; text-align: center; }
 
-        /* CERTIFICATIONS GRID */
-        .cert-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
-
-        /* SKILLS */
+        /* SKILLS AREA */
         .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 12px; }
         .tech-skills-list { display: flex; justify-content: space-around; align-items: center; padding: 10px 0; }
         .tech-icon { text-align: center; font-size: 0.65rem; color: #666; }
-        .tech-icon i { font-size: 1.5rem; color: var(--secondary-green); display: block; margin-bottom: 4px; }
+        .tech-icon i { font-size: 1.6rem; color: var(--secondary-green); display: block; margin-bottom: 4px; }
+        .tag-box { background: var(--gray-box); padding: 6px 15px; border-radius: 25px; font-size: 0.75rem; border: 1px solid #ddd; font-weight: 500; }
 
-        .soft-skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .tag-box { background: var(--gray-box); padding: 8px; border-radius: 25px; font-size: 0.75rem; text-align: center; border: 1px solid #ddd; }
-
-        /* PROJECTS */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .project-card-inner h4 { color: var(--secondary-green); margin: 0 0 5px 0; font-size: 0.95rem; }
-        .project-card-inner p { font-size: 0.8rem; color: #555; line-height: 1.4; margin-bottom: 10px; }
-        .tool-tag { font-size: 0.65rem; background: #eef2f2; padding: 2px 8px; border-radius: 4px; margin-right: 5px; color: var(--secondary-green); font-weight: bold; border: 1px solid #ddd; }
-
-        /* TAB LOGIC */
-        .role-content { display: none; }
-        .role-content.active { display: block; }
-
+        /* PROJECT SECTION (DETAILED) */
+        .project-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 15px; background: #fff; }
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .project-card-inner { background: var(--gray-box); border-radius: 12px; border: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+        .project-card-inner h4 { color: var(--secondary-green); margin: 0; font-size: 1.1rem; }
+        
+        .project-detail-section { margin-bottom: 5px; }
+        .project-detail-label { font-size: 0.7rem; font-weight: bold; color: var(--primary-green); text-transform: uppercase; margin-bottom: 2px; display: block; }
+        .project-detail-text { font-size: 0.8rem; line-height: 1.4; color: #444; margin: 0; }
+        
+        .tool-tag { font-size: 0.65rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
+        
+        .project-links { margin-top: 10px; display: flex; gap: 10px; }
+        .link-btn { font-size: 0.75rem; text-decoration: none; color: var(--secondary-green); font-weight: bold; border-bottom: 1px solid var(--secondary-green); transition: 0.3s; }
+        .link-btn:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
     </style>
 </head>
 <body>
@@ -167,141 +134,168 @@
     <div class="header">
         <h3>My Portfolio</h3>
         <div class="role-nav">
-            <button class="role-btn active" onclick="showTab('data')">DATA ANALYST</button>
-            <button class="role-btn" onclick="showTab('ci')">CONTINUOUS IMPROVEMENT</button>
-            <button class="role-btn" onclick="showTab('pm')">PROJECT MANAGEMENT</button>
+            <button id="nav-data" class="role-btn active" onclick="updatePage('data')">DATA ANALYST</button>
+            <button id="nav-ci" class="role-btn" onclick="updatePage('ci')">CONTINUOUS IMPROVEMENT</button>
+            <button id="nav-pm" class="role-btn" onclick="updatePage('pm')">PROJECT MANAGEMENT</button>
         </div>
         <div style="font-weight: bold; color: var(--accent-gold); font-size: 0.9rem;">EN | <span style="color:#ccc">ID</span></div>
     </div>
 
-    <div id="data" class="role-content active">
-        <div class="bento-grid">
-            <div class="card profile-card"><img src="Profile.png" alt="Fadila Utami"></div>
-            
-            <div class="card about-card">
-                <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
-                <div class="section-title">ABOUT ME</div>
-                <h2>Fadila Utami</h2>
-                <div class="sub-role">DATA ANALYST</div>
-                <p style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">
-                    I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I improved workflow efficiency by 30% through Lean principles. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="section-title">CONTACT</div>
-                <div class="stack-container">
-                    <div class="stack-item item-neutral">
-                        <i class="fa-solid fa-location-dot"></i> 
-                        <span style="font-size: 0.7rem;">Padang (Open to Relocation)</span>
-                    </div>
-                    <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral">
-                        <i class="fa-brands fa-linkedin"></i> 
-                        <span style="font-size: 0.7rem;">Linkedin</span>
-                    </a>
-                    <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral">
-                        <i class="fa-solid fa-envelope"></i> 
-                        <span style="font-size: 0.7rem;">fu.fadilautami@gmail.com</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="section-title">EDUCATION</div>
-                <div class="stack-container">
-                    <div class="stack-item item-primary">
-                        <b>Master of Science Industrial Engineering</b>
-                        <span>Universiti Teknologi Malaysia (UTM)</span>
-                        <span>Sep 2021 – Mar 2023</span>
-                    </div>
-                    <div class="stack-item item-neutral">
-                        <div>
-                            <b>Bachelor’s Degree Industrial Engineering</b>
-                            <span>Universitas Pancasila</span>
-                            <span>Aug 2014 – Sep 2018</span>
-                        </div>
-                    </div>
-                    <div class="stack-item item-neutral">
-                        <div>
-                            <b>Full stack Data Analytics Program</b>
-                            <span>RevoU</span>
-                            <span>Oct 2025 – Feb 2026</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="section-title">CERTIFICATIONS</div>
-                <div class="stack-container">
-                    <div class="cert-grid">
-                        <div class="stack-item item-neutral"><b>Full-stack Data Analytics Program</b><span>RevoU</span></div>
-                        <div class="stack-item item-neutral"><b>Data Analyst</b><span>Dsarea</span></div>
-                    </div>
-                </div>
-            </div>
+    <div class="bento-grid">
+        <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
+        <div class="card about-card">
+            <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
+            <div class="section-title">ABOUT ME</div>
+            <h2 id="name">Fadila Utami</h2>
+            <div id="role-title" class="sub-role">DATA ANALYST</div>
+            <p id="about-desc" style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;"></p>
         </div>
+        <div class="card"><div class="section-title">CONTACT</div><div id="contact-content" class="stack-container"></div></div>
+        <div class="card"><div class="section-title">EDUCATION</div><div id="edu-content" class="stack-container"></div></div>
+        <div class="card"><div class="section-title">CERTIFICATIONS</div><div id="cert-content" class="stack-container"></div></div>
+    </div>
 
-        <div class="skills-row">
-            <div class="card">
-                <div class="section-title">TECHNICAL SKILLS</div>
-                <div class="tech-skills-list">
-                    <div class="tech-icon"><i class="fa-solid fa-table"></i>Excel</div>
-                    <div class="tech-icon"><i class="fa-solid fa-table"></i>Spreadsheet</div>
-                    <div class="tech-icon"><i class="fa-solid fa-database"></i>SQL</div>
-                    <div class="tech-icon"><i class="fa-brands fa-python"></i>Python</div>
-                    <div class="tech-icon"><i class="fa-solid fa-chart-column"></i>Power BI</div>
-                    <div class="tech-icon"><i class="fa-solid fa-chart-line"></i>Tableau</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="section-title">SOFT SKILLS</div>
-                <div class="soft-skills-grid">
-                    <div class="tag-box">Analytical Problem Solving</div>
-                    <div class="tag-box">Data Storytelling</div>
-                    <div class="tag-box">Cross-Functional Collaboration</div>
-                </div>
-            </div>
-        </div>
+    <div class="skills-row">
+        <div class="card"><div class="section-title">TECHNICAL SKILLS</div><div id="tech-skills" class="tech-skills-list"></div></div>
+        <div class="card"><div class="section-title">SOFT SKILLS</div><div id="soft-skills" class="soft-skills-grid"></div></div>
+    </div>
 
+    <div class="project-outer-card">
         <div class="section-title">PROJECT EXPERIENCE</div>
-        <div class="project-grid">
-            <div class="card project-card-inner">
-                <div class="section-title" style="font-size: 0.6rem;">REVOU (DEEPP)</div>
-                <h4>Supergoop! Performance Analysis</h4>
-                <p>Extracted and Cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
-                <div><span class="tool-tag">Python</span><span class="tool-tag">Power BI</span><span class="tool-tag">EDA</span></div>
-            </div>
-            <div class="card project-card-inner">
-                <div class="section-title" style="font-size: 0.6rem;">REVOU (ASSIGNMENT)</div>
-                <h4>RevoBank Customer Segmentation</h4>
-                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups for targeted campaigns.</p>
-                <div><span class="tool-tag">SQL</span><span class="tool-tag">Python</span><span class="tool-tag">K-Means</span></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="ci" class="role-content">
-        <div class="card">
-            <h2>Continuous Improvement</h2>
-            <p>Pengalaman profesional dalam optimasi proses menggunakan prinsip Lean Manufacturing dan Six Sigma.</p>
-        </div>
-    </div>
-    <div id="pm" class="role-content">
-        <div class="card">
-            <h2>Project Management</h2>
-            <p>Pengalaman dalam koordinasi proyek, manajemen lini masa, dan kolaborasi lintas fungsi.</p>
-        </div>
+        <div id="project-list" class="project-grid"></div>
     </div>
 </div>
 
 <script>
-    function showTab(tabId) {
-        document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+const pageData = {
+    data: {
+        role: "DATA ANALYST",
+        about: "I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.",
+        linkedin: "https://linkedin.com/in/fadila-utami",
+        tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
+        soft: ["Analytical Problem Solving", "Data Storytelling", "Collaboration"],
+        projects: [
+            {
+                tag: "REVOU (DEEPP)",
+                t: "Supergoop! Performance Analysis",
+                problem: "Understanding product ratings and online sales drivers at Sephora using review data.",
+                obj: "Identify key satisfaction drivers and sentiment drivers using 2023 product data.",
+                method: "Data extraction & cleaning (Python), EDA using Python (Google Colab), Data Visualization (Power BI).",
+                result: "76% positive sentiment identified. Top 3 sunscreen products identified with key performance metrics.",
+                tools: ["Python", "Power BI", "EDA"],
+                link_ppt: "#", // Masukkan link PPT Anda di sini
+                link_colab: "#" // Masukkan link Google Colab Anda di sini
+            },
+            {
+                tag: "REVOU (ASSIGNMENT)",
+                t: "RevoBank Customer Segmentation",
+                problem: "Need to evaluate customer behavior and fraud impact on revenue over 6 months.",
+                obj: "Identify user personas and measure fraudulent impact on net revenue baseline.",
+                method: "Data cleaning (Python), RFM Analysis & K-Means Clustering (Google Colab), Tiered Growth Strategy.",
+                result: "Established IDR 5.83B profitability baseline and identified 3 distinct persona groups.",
+                tools: ["SQL", "Python", "K-Means"],
+                link_ppt: "#",
+                link_colab: "#"
+            }
+        ],
+        certs: ["Full-stack Data Analytics (RevoU)", "Data Analyst (Dsarea)"]
+    },
+    ci: {
+        role: "CONTINUOUS IMPROVEMENT ANALYST",
+        about: "Expert in process optimization and operational excellence. Successfully improved operational output by 30% through Lean principles.",
+        linkedin: "https://linkedin.com/in/fadila-utami",
+        tech: [{n:"Process Mapping", i:"fa-diagram-project"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Excel", i:"fa-table"}, {n:"Lean Tools", i:"fa-gears"}],
+        soft: ["Systems Thinking", "Waste Reduction", "Process Optimization"],
+        projects: [
+            {
+                tag: "WORKING EXPERIENCE",
+                t: "Property Operations Optimization",
+                problem: "Inefficient workflows causing high operational costs and slow maintenance response.",
+                obj: "Standardize operations and improve workflow efficiency by 30%.",
+                method: "Root Cause Analysis (RCA), Process Mapping, Implementation of Preventive Maintenance schedules.",
+                result: "Efficiency improved by 30% and operational reporting became more structured.",
+                tools: ["Lean", "RCA", "Process Mapping"],
+                link_ppt: "#",
+                link_colab: "#"
+            }
+        ],
+        certs: ["Six Sigma Green Belt (SSAA)", "Lean Manufacturing Background"]
+    },
+    pm: {
+        role: "PROJECT MANAGEMENT",
+        about: "Experienced in planning and executing project coordination using Gantt schedules and managing cross-functional teams.",
+        linkedin: "https://linkedin.com/in/fadila-utami",
+        tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Tableau", i:"fa-chart-line"}],
+        soft: ["Stakeholder Alignment", "Timeline Management", "Strategic Problem Solving"],
+        projects: [
+            {
+                tag: "KPU MALAYSIA",
+                t: "General Elections Coordination",
+                problem: "Managing logistics and personnel across five site operations during high-pressure election period.",
+                obj: "Achieve 100% operational success across all sites with structured coordination.",
+                method: "Structured Gantt schedules, stakeholder alignment, and real-time monitoring.",
+                result: "Successfully managed 5 sites with zero major operational delays.",
+                tools: ["Gantt", "Coordination", "Strategic Planning"],
+                link_ppt: "#",
+                link_colab: "#"
+            }
+        ],
+        certs: ["Project Management (Google)", "Project Management (Microsoft)"]
     }
+};
+
+function updatePage(key) {
+    const d = pageData[key];
+    document.getElementById('role-title').innerText = d.role;
+    document.getElementById('about-desc').innerText = d.about;
+    document.getElementById('contact-content').innerHTML = `
+        <div class="stack-item item-neutral"><i class="fa-solid fa-location-dot"></i> <span>Padang (Open to Relocation)</span></div>
+        <a href="${d.linkedin}" target="_blank" class="stack-item item-neutral"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn: ${d.role}</span></a>
+        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><i class="fa-solid fa-envelope"></i> <span>fu.fadilautami@gmail.com</span></a>
+    `;
+    document.getElementById('edu-content').innerHTML = `
+        <div class="stack-item item-primary"><b>Master of Industrial Engineering</b><span>UTM | 2021 - 2023</span></div>
+        <div class="stack-item item-neutral"><b>Bachelor of Industrial Engineering</b><span>Univ. Pancasila | 2014 - 2018</span></div>
+    `;
+    document.getElementById('cert-content').innerHTML = d.certs.map(c => `<div class="stack-item item-neutral"><b>${c}</b></div>`).join('');
+    document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
+    document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<div class="tag-box">${s}</div>`).join('');
+
+    document.getElementById('project-list').innerHTML = d.projects.map(p => `
+        <div class="project-card-inner">
+            <div class="section-title" style="font-size: 0.6rem; margin-bottom: 5px;">${p.tag}</div>
+            <h4>${p.t}</h4>
+            <div class="project-detail-section">
+                <span class="project-detail-label">Background Problem</span>
+                <p class="project-detail-text">${p.problem}</p>
+            </div>
+            <div class="project-detail-section">
+                <span class="project-detail-label">Objective</span>
+                <p class="project-detail-text">${p.obj}</p>
+            </div>
+            <div class="project-detail-section">
+                <span class="project-detail-label">Method</span>
+                <p class="project-detail-text">${p.method}</p>
+            </div>
+            <div class="project-detail-section">
+                <span class="project-detail-label">Result</span>
+                <p class="project-detail-text">${p.result}</p>
+            </div>
+            <div style="margin: 5px 0;">
+                ${p.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}
+            </div>
+            <div class="project-links">
+                <a href="${p.link_ppt}" class="link-btn" target="_blank"><i class="fa-solid fa-file-powerpoint"></i> View Presentation</a>
+                <a href="${p.link_colab}" class="link-btn" target="_blank"><i class="fa-solid fa-code"></i> View Google Colab</a>
+            </div>
+        </div>
+    `).join('');
+
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('nav-' + key).classList.add('active');
+}
+
+updatePage('data');
 </script>
 
 </body>
