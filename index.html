@@ -67,7 +67,7 @@
         /* BENTO GRID SYSTEM */
         .bento-grid {
             display: grid;
-            grid-template-columns: 280px 220px 1.2fr 1.5fr; /* Foto dikecilkan ke 280px, Contact 220px */
+            grid-template-columns: 320px 240px 1.2fr 1.2fr; /* Kolom contact diperkecil menjadi 240px */
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -116,13 +116,6 @@
         /* STACKED BOXES */
         .stack-container { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
         
-        /* Grid Khusus untuk Sertifikat (Dua Kolom Jajar) */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
         .stack-item {
             padding: 10px;
             border-radius: 10px;
@@ -141,7 +134,7 @@
         .item-neutral { background: var(--gray-box); border: 1px solid #ddd; }
         .item-neutral i { color: var(--secondary-green); font-size: 1rem; width: 18px; text-align: center; }
         .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
-        .item-neutral span { display: block; font-size: 0.7rem; color: #666; }
+        .item-neutral span { display: block; font-size: 0.75rem; color: #666; }
 
         /* SKILLS */
         .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 12px; }
@@ -186,7 +179,7 @@
                 <div class="section-title">ABOUT ME</div>
                 <h2>Fadila Utami</h2>
                 <div class="sub-role">DATA ANALYST</div>
-                <p style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence. I improved workflow efficiency by 30% through Lean principles. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights.</p>
+                <p style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">I am a Data Analyst with an Industrial Engineering background, dedicated to driving operational excellence[cite: 4]. I improved workflow efficiency by 30% through Lean principles[cite: 5]. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights[cite: 6].</p>
             </div>
 
             <div class="card">
@@ -218,7 +211,8 @@
                     <div class="stack-item item-neutral">
                         <div>
                             <b>Full-stack Data Analytics</b>
-                            <span>RevoU | Oct 2025 - Feb 2026</span>
+                            <span>RevoU</span>
+                            <span>Oct 2025 - Feb 2026</span>
                         </div>
                     </div>
                 </div>
@@ -226,16 +220,16 @@
 
             <div class="card">
                 <div class="section-title">CERTIFICATIONS</div>
-                <div class="cert-grid">
+                <div class="stack-container">
                     <div class="stack-item item-neutral">
                         <div>
                             <b>Six Sigma Green Belt</b>
-                            <span>Academy Amsterdam</span>
+                            <span>Six Sigma Academy Amsterdam</span>
                         </div>
                     </div>
                     <div class="stack-item item-neutral">
                         <div>
-                            <b>Project Management</b>
+                            <b>Project Management Professional</b>
                             <span>Issued by Google</span>
                         </div>
                     </div>
@@ -269,20 +263,20 @@
             <div class="card project-card-inner">
                 <div class="section-title" style="font-size: 0.6rem;">REVOU (DEEPP)</div>
                 <h4>Supergoop! Performance Analysis</h4>
-                <p>Extracted and Cleaned 1 million+ customer reviews using Python. Developed Power BI dashboards to visualize sentiment drivers.</p>
+                <p>Extracted and Cleaned 1 million+ customer reviews using Python[cite: 36]. Developed Power BI dashboards to visualize sentiment drivers[cite: 38].</p>
                 <div><span class="tool-tag">Python</span><span class="tool-tag">Power BI</span><span class="tool-tag">EDA</span></div>
             </div>
             <div class="card project-card-inner">
                 <div class="section-title" style="font-size: 0.6rem;">REVOU (ASSIGNMENT)</div>
                 <h4>RevoBank Customer Segmentation</h4>
-                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups.</p>
+                <p>Segmented customer base using Python K-Means Clustering to identify distinct persona groups[cite: 49].</p>
                 <div><span class="tool-tag">SQL</span><span class="tool-tag">Python</span><span class="tool-tag">K-Means</span></div>
             </div>
         </div>
     </div>
 
-    <div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Experience in process optimization and Lean principles.</p></div></div>
-    <div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Experience in project coordination and timeline management.</p></div></div>
+    <div id="ci" class="role-content"><div class="card"><h2>Continuous Improvement</h2><p>Pengalaman optimasi proses dan prinsip Lean.</p></div></div>
+    <div id="pm" class="role-content"><div class="card"><h2>Project Management</h2><p>Pengalaman koordinasi proyek dan manajemen lini masa.</p></div></div>
 
 </div>
 
