@@ -17,62 +17,58 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 20px; }
         .container { width: 98%; max-width: 1400px; margin: auto; }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER */
         .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; }
         .header h3 { color: var(--primary-green); margin: 0; font-size: 1.5rem; }
         .role-nav { display: flex; background: #fff; border-radius: 30px; padding: 4px; border: 1px solid #ddd; }
         .role-btn { border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; background: transparent; color: #666; font-size: 0.8rem; transition: 0.3s; }
         .role-btn.active { background: var(--primary-green); color: white; }
 
-        /* BENTO GRID - SUSUNAN RATA KANAN (HORIZONTAL) */
+        /* BENTO GRID - 4 KOLOM SEJAJAR */
         .bento-grid { 
             display: grid; 
-            /* 4 Kolom: Foto (280px), Contact (240px), Education (Flexible), Certifications (Flexible) */
             grid-template-columns: 280px 240px 1fr 1fr; 
-            gap: 12px; 
-            margin-bottom: 15px; 
+            gap: 15px; 
+            margin-bottom: 20px; 
         }
 
         .card { background: var(--white); border-radius: 12px; border: 3.5px solid var(--primary-green); padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
         .section-title { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: bold; }
 
-        /* PROFILE & ABOUT */
-        .profile-card { grid-row: span 2; padding: 0; overflow: hidden; background: #000; }
-        .profile-card img { width: 100%; height: 100%; object-fit: cover; }
+        /* PROFILE & ABOUT (Atas) */
+        .profile-card { grid-row: span 2; padding: 0; overflow: hidden; }
+        .profile-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
         .about-card { grid-column: span 3; position: relative; }
         .about-card h2 { color: var(--primary-green); margin: 0; font-size: 1.8rem; }
-        .about-card .sub-role { color: var(--accent-gold); font-weight: bold; font-size: 1rem; margin-bottom: 10px; }
-        .download-cv { position: absolute; top: 15px; right: 15px; border: 1.5px solid var(--primary-green); color: var(--primary-green); padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+        .about-card .sub-role { color: var(--accent-gold); font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
 
-        /* STACKED ITEMS */
-        .stack-container { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
-        .stack-item { padding: 10px; border-radius: 10px; font-size: 0.8rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; background: var(--gray-box); border: 1px solid #ddd; }
-        .item-primary { background: var(--primary-green); color: white; border-color: var(--primary-green); display: block; }
-        .item-primary b { color: var(--accent-gold); display: block; margin-bottom: 2px; }
-        .item-neutral b { color: var(--primary-green); display: block; margin-bottom: 2px; }
+        /* CONTACT, EDU, CERT (Bawah - Berjejer Horizontal) */
+        .stack-container { display: flex; flex-direction: column; gap: 8px; }
+        .stack-item { padding: 10px; border-radius: 10px; font-size: 0.8rem; display: flex; flex-direction: column; background: var(--gray-box); border: 1px solid #ddd; }
+        .item-primary { background: var(--primary-green); color: white; border-color: var(--primary-green); }
+        .item-primary b { color: var(--accent-gold); }
+        .item-neutral b { color: var(--primary-green); }
 
-        /* SKILLS AREA */
-        .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 12px; margin-bottom: 15px; }
+        /* SKILLS SECTION */
+        .skills-row { display: grid; grid-template-columns: 1.2fr 2fr; gap: 15px; margin-bottom: 20px; }
         .tech-skills-list { display: flex; justify-content: space-around; align-items: center; padding: 10px 0; }
-        .tech-icon { text-align: center; font-size: 0.65rem; color: #666; }
-        .tech-icon i { font-size: 1.5rem; color: var(--secondary-green); display: block; margin-bottom: 4px; }
-        .soft-skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag-box { background: var(--gray-box); padding: 6px 15px; border-radius: 25px; font-size: 0.75rem; border: 1px solid #ddd; font-weight: 600; }
+        .tech-icon { text-align: center; font-size: 0.7rem; color: #666; font-weight: bold; }
+        .tech-icon i { font-size: 1.8rem; color: var(--secondary-green); display: block; margin-bottom: 5px; }
+        .tag-box { background: var(--gray-box); padding: 6px 15px; border-radius: 25px; font-size: 0.8rem; border: 1px solid #ddd; font-weight: 600; margin-right: 5px; margin-bottom: 5px; display: inline-block; }
 
-        /* EXPERIENCE SECTION */
+        /* EXPERIENCE */
         .exp-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 20px; background: #fff; }
         .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .project-card-clickable { background: var(--gray-box); border: 1px solid #ddd; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; position: relative; }
-        .project-card-clickable:hover { border-color: var(--primary-green); transform: translateY(-3px); background: #f0f4f3; }
-        .tool-tag { font-size: 0.65rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
+        .project-card-clickable { background: var(--gray-box); border: 1px solid #ddd; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; }
+        .project-card-clickable:hover { border-color: var(--primary-green); background: #f0f4f3; }
 
         /* MODAL */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow-y: auto; }
-        .modal-content { background-color: #fefefe; margin: 3% auto; padding: 30px; border: 3.5px solid var(--primary-green); width: 85%; max-width: 1000px; border-radius: 15px; position: relative; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: #fff; margin: 2% auto; padding: 30px; border: 3.5px solid var(--primary-green); width: 85%; max-width: 1000px; border-radius: 15px; position: relative; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
         .modal-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
-        .modal-image { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
-        .modal-info b { color: var(--primary-green); display: block; margin-top: 10px; font-size: 0.9rem; }
+        .modal-info b { color: var(--primary-green); display: block; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -91,11 +87,10 @@
         <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
         
         <div class="card about-card">
-            <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
             <div class="section-title">ABOUT ME</div>
             <h2 id="name">Fadila Utami</h2>
             <div id="role-title" class="sub-role">DATA ANALYST</div>
-            <p id="about-desc" style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;"></p>
+            <p id="about-desc" style="font-size: 0.9rem; line-height: 1.6;"></p>
         </div>
 
         <div class="card">
@@ -121,7 +116,7 @@
         </div>
         <div class="card">
             <div class="section-title">SOFT SKILLS</div>
-            <div id="soft-skills" class="soft-skills-grid"></div>
+            <div id="soft-skills"></div>
         </div>
     </div>
 
@@ -136,17 +131,13 @@
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <h3 id="m-title" style="color: var(--primary-green); margin-top: 0;"></h3>
         <div class="modal-grid">
-            <div><img id="m-image" src="" alt="Dashboard Preview" class="modal-image"></div>
+            <div><img id="m-image" src="" alt="Dashboard" style="width:100%; border:1px solid #ddd;"></div>
             <div class="modal-info">
                 <b>Background Problem:</b> <span id="m-bg"></span>
                 <b>Objective:</b> <span id="m-obj"></span>
                 <b>Method:</b> <span id="m-meth"></span>
                 <b>Result:</b> <span id="m-res"></span>
             </div>
-        </div>
-        <div class="modal-links" style="margin-top:20px; border-top:1px solid #ddd; padding-top:15px;">
-            <a id="m-deck" href="#" target="_blank" style="color:red; font-weight:bold; text-decoration:none;">View Deck (PPT)</a> | 
-            <a id="m-code" href="#" target="_blank" style="color:blue; font-weight:bold; text-decoration:none;">BigQuery / Colab</a>
         </div>
     </div>
 </div>
@@ -159,25 +150,23 @@ const pageData = {
         tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
         soft: ["Analytical Problem Solving", "Data Storytelling", "Structured Thinking"],
         items: [
-            { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python (Google Colab) & Power BI.", res: "76% Positif.", img: "sg.jpg", deck: "#", code: "#", tools: ["Python", "Power BI"] },
-            { t: "RevoBank Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "Python (Pandas, Scikit-Learn).", res: "3 Persona Teridentifikasi.", img: "rb.jpg", deck: "#", code: "#", tools: ["SQL", "Python"] },
-            { t: "RevoGrocers Sales Analysis", bg: "Realokasi sumber daya kategori.", obj: "Identifikasi revenue driver.", meth: "SQL (BigQuery).", res: "Meat & Confections pendorong utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
-            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard interaktif.", meth: "Tableau.", res: "Track Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }
+            { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python (Google Colab) & Power BI.", res: "76% Positif.", img: "sg.jpg" },
+            { t: "RevoBank Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "Python & K-Means.", res: "3 Persona Teridentifikasi.", img: "rb.jpg" }
         ]
     },
     ci: {
         role: "CONTINUOUS IMPROVEMENT",
         about: "Berfokus pada efisiensi operasional dan optimasi proses melalui prinsip Lean Manufacturing.",
-        tech: [{n:"Process Mapping", i:"fa-diagram-project"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Lean Tools", i:"fa-gears"}],
-        soft: ["Systems Thinking", "Root Cause Analysis", "Lean Manufacturing"],
-        items: [{ t: "Working Exp: Property Operations", bg: "Inefisiensi alur kerja lintas fungsi.", obj: "Optimasi proses Lean.", meth: "RCA & SOP Standar.", res: "Efisiensi +30%.", img: "ci.jpg", deck: "#", code: "#", tools: ["Lean", "RCA"] }]
+        tech: [{n:"Lean", i:"fa-gears"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Mapping", i:"fa-diagram-project"}],
+        soft: ["Systems Thinking", "Waste Reduction", "Process Optimization"],
+        items: [{ t: "Working Exp: Property Operations", bg: "Inefisiensi alur kerja.", obj: "Optimasi proses Lean.", meth: "RCA & SOP.", res: "Efisiensi +30%.", img: "ci.jpg" }]
     },
     pm: {
         role: "PROJECT MANAGEMENT",
         about: "Mengoordinasikan proyek kompleks dan mengelola lini masa menggunakan jadwal Gantt.",
-        tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Coordination", i:"fa-tasks"}],
-        soft: ["Timeline Management", "Stakeholder Alignment", "Strategic Coordination"],
-        items: [{ t: "Working Exp: KPU Malaysia", bg: "Logistik pemilu di 5 lokasi.", obj: "100% Sukses operasional.", meth: "Gantt Project Schedule.", res: "Target tercapai 100%.", img: "pm.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"] }]
+        tech: [{n:"Planning", i:"fa-list-check"}, {n:"Gantt", i:"fa-calendar-day"}, {n:"Coordination", i:"fa-tasks"}],
+        soft: ["Timeline Management", "Stakeholder Alignment", "Strategic Planning"],
+        items: [{ t: "Working Exp: KPU Malaysia", bg: "Logistik pemilu 5 lokasi.", obj: "100% Sukses operasional.", meth: "Gantt Schedule.", res: "Target 100% tercapai.", img: "pm.jpg" }]
     }
 };
 
@@ -186,48 +175,25 @@ function updatePage(key) {
     document.getElementById('role-title').innerText = d.role;
     document.getElementById('about-desc').innerText = d.about;
 
-    // Contact
     document.getElementById('contact-content').innerHTML = `
         <div class="stack-item item-neutral"><span>Padang (Open Relocation)</span></div>
-        <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></a>
-        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></a>`;
+        <div class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></div>
+        <div class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></div>`;
 
-    // Education (Format Rapi sesuai permintaan)
     document.getElementById('edu-content').innerHTML = `
-        <div class="stack-item item-primary">
-            <b>Master of Science Industrial Engineering</b>
-            <span>Universiti Teknologi Malaysia (UTM)</span>
-            <span>Sep 2021 – Mar 2023</span>
-        </div>
-        <div class="stack-item item-neutral">
-            <b>Bachelor's Degree Industrial Engineering</b>
-            <span>Universitas Pancasila</span>
-            <span>Aug 2014 – Sep 2018</span>
-        </div>
-        <div class="stack-item item-neutral">
-            <b>Full stack Data Analytics Program</b>
-            <span>RevoU</span>
-            <span>Oct 2025 – Feb 2026</span>
-        </div>`;
+        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>Universiti Teknologi Malaysia (UTM)</span><span>Sep 2021 – Mar 2023</span></div>
+        <div class="stack-item item-neutral"><b>Bachelor's Degree Industrial Engineering</b><span>Universitas Pancasila</span><span>Aug 2014 – Sep 2018</span></div>
+        <div class="stack-item item-neutral"><b>Full stack Data Analytics Program</b><span>RevoU</span><span>Oct 2025 – Feb 2026</span></div>`;
 
-    // Certifications
     document.getElementById('cert-content').innerHTML = `
         <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
         <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
         <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>`;
 
-    // Update Skills
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
-    document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<div class="tag-box">${s}</div>`).join('');
-
-    // Update Projects
-    document.getElementById('project-list').innerHTML = d.items.map((item, index) => `
-        <div class="project-card-clickable" onclick="openModal('${key}', ${index})">
-            <div class="section-title" style="font-size: 0.6rem;">CLICK FOR DETAILS</div>
-            <h4>${item.t}</h4>
-            <div>${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
-        </div>`).join('');
-
+    document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<span class="tag-box">${s}</span>`).join('');
+    document.getElementById('project-list').innerHTML = d.items.map((item, index) => `<div class="project-card-clickable" onclick="openModal('${key}', ${index})"><h4>${item.t}</h4></div>`).join('');
+    
     document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('nav-' + key).classList.add('active');
 }
@@ -242,7 +208,6 @@ function openModal(k, i) {
     document.getElementById('m-image').src = item.img;
     document.getElementById('projectModal').style.display = "block";
 }
-
 function closeModal() { document.getElementById('projectModal').style.display = "none"; }
 updatePage('data');
 </script>
