@@ -150,10 +150,51 @@ const pageData = {
         tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
         soft: ["Analytical Problem Solving", "Data Storytelling", "Structured Thinking"],
         items: [
-            { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python (Google Colab) & Power BI.", res: "76% Positif.", img: "sg.jpg", deck: "#", code: "#", tools: ["Python", "Power BI"] },
-            { t: "RevoBank Customer Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "Python (Pandas, Scikit-Learn).", res: "3 Persona Teridentifikasi.", img: "rb.jpg", deck: "#", code: "#", tools: ["SQL", "Python"] },
-            { t: "RevoGrocers Sales Analysis", bg: "Realokasi sumber daya kategori.", obj: "Identifikasi revenue driver.", meth: "SQL (BigQuery).", res: "Meat & Confections pendorong utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
-            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard interaktif.", meth: "Tableau.", res: "Visualisasi Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }        ]
+            { 
+                t: "Supergoop! Performance Analysis", 
+                bg: "Analyze the drivers of Supergoop!'s product ratings and online sales contribution at Sephora using 2023 data.", 
+                obj: "Identify key factors influencing customer ratings and sentiment for product improvement.", 
+                meth: "Data Cleaning, Sentiment Analysis, and EDA using Python (Google Colab) & Power BI.", 
+                res: "76% Positive reviews; identified Mini Size products as engagement drivers.", 
+                img: "supergoop_preview.jpg", 
+                deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/Supergoop!%20Performance%20Analysis%20at%20Sephora/Supergoop!%20Performance%20Analysis.pdf", 
+                code: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/Supergoop!%20Performance%20Analysis%20at%20Sephora/Supergoop!%20Performance%20Analysis.ipynb", 
+                tools: ["Python", "Power BI"] 
+            },
+            { 
+                t: "RevoBank Customer Segmentation", 
+                bg: "Evaluate credit card transaction performance and identify user personas to optimize marketing strategies.", 
+                obj: "Segment customer base using behavioral data to identify high-value groups.", 
+                meth: "K-Means Clustering using Python (Pandas, Scikit-Learn) on Google Colab.", 
+                res: "Defined 3 distinct personas. Cluster 1 identified as High-Value Active Users.", 
+                img: "revobank_preview.jpg", 
+                deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoBank_Customer_Segmentation/FSDA%20OCT25%20_%20Intermediate%20Python.pdf", 
+                code: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoBank_Customer_Segmentation/FSDA%20OCT25%20_%20Intermediate%20Python.ipynb", 
+                tools: ["SQL", "Python"] 
+            },
+            { 
+                t: "RevoGrocers Sales Analysis", 
+                bg: "RevoGrocers facing performance challenges and aims to reallocate resources from low-growth segments.", 
+                obj: "Identify top-performing categories and analyze revenue drivers using unit sales and pricing impact.", 
+                meth: "Data Understanding & Sales Trend Analysis using SQL (BigQuery).", 
+                res: "Identified Dual Revenue Drivers (Meat & Confections) for profit stability.", 
+                img: "revogrocers_preview.jpg", 
+                deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoGrocers_Analysis/Intermediate%20SQL.pdf", 
+                code: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoGrocers_Analysis/Query.sql", 
+                tools: ["SQL", "BigQuery"] 
+            },
+            { 
+                t: "RevoFinance Dashboard", 
+                bg: "Users need clear visibility into spending patterns and budget usage across multiple categories.", 
+                obj: "Build interactive dashboard to track Rp 509M annual expenses real-time.", 
+                meth: "Data Blending & Visualization using Tableau.", 
+                res: "Dashboard tracking expenses by category, merchant, and monthly trends.", 
+                img: "revofinance_preview.jpg", 
+                deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoFinance%20Data%20Visualization/FSDA%20OCT25_DATAVIZ.pdf", 
+                code: "https://public.tableau.com/app/profile/fadila.utami", 
+                tools: ["Tableau", "Finance"] 
+            }
+        ]
     },
     ci: {
         role: "CONTINUOUS IMPROVEMENT",
@@ -188,8 +229,8 @@ function updatePage(key) {
 
     document.getElementById('cert-content').innerHTML = `
         <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
-        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
-        <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>`;
+        <div class="stack-item item-neutral"><b>Data Analyticsb><span>Dsarea</span></div>`;
+        
 
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
     document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<span class="tag-box">${s}</span>`).join('');
