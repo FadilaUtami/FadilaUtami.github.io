@@ -94,7 +94,7 @@
             <p id="about-desc" style="font-size: 0.9rem; line-height: 1.6;"></p>
         </div>
         <div class="card"><div class="section-title">CONTACT</div><div id="contact-content" class="stack-container"></div></div>
-        <div class="card"><div class="section-title">EDUCATION</div><div id="edu-content" class="stack-container"></div></div>
+       <div class="card"><div class="section-title">EDUCATION</div><div id="edu-content" class="stack-container"></div></div>
         <div class="card"><div class="section-title">CERTIFICATIONS</div><div id="cert-content" class="stack-container"></div></div>
     </div>
 
@@ -189,13 +189,13 @@ function updatePage(key) {
         <div class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></div>`;
 
     document.getElementById('edu-content').innerHTML = `
-        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>UTM | 2021 – 2023</span></div>
+        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>Universiti Teknologi Malaysia (UTM)</span><span>Sep 2021 – Mar 2023</span></div>
         <div class="stack-item item-neutral"><b>Bachelor's Degree Industrial Engineering</b><span>Univ. Pancasila | 2014 – 2018</span></div>
         <div class="stack-item item-neutral"><b>Full stack Data Analytics Program</b><span>RevoU | 2025 – 2026</span></div>`;
-
+    
     document.getElementById('cert-content').innerHTML = `
-        <div class="stack-item item-neutral"><b>FSDA</b><span>RevoU</span></div>
-        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>`;
+        <div class="stack-item item-neutral"><b>Full stack Data Analytics Program</b><span>RevoU</span></div>
+        <div class="stack-item item-neutral"><b> Data Analyst</b><span>Dsarea </span></div>`;
 
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
     document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<span class="tag-box">${s}</span>`).join('');
