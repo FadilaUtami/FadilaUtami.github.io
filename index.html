@@ -15,88 +15,30 @@
             --gray-box: #ebedee;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-light);
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            width: 98%;
-            max-width: 1400px;
-            margin: auto;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 20px; }
+        .container { width: 98%; max-width: 1400px; margin: auto; }
 
         /* HEADER & NAVIGATION */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-        }
-
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; }
         .header h3 { color: var(--primary-green); margin: 0; font-size: 1.5rem; }
+        .role-nav { display: flex; background: #fff; border-radius: 30px; padding: 4px; border: 1px solid #ddd; }
+        .role-btn { border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; background: transparent; color: #666; font-size: 0.8rem; transition: 0.3s; }
+        .role-btn.active { background: var(--primary-green); color: white; }
 
-        .role-nav {
-            display: flex;
-            background: #fff;
-            border-radius: 30px;
-            padding: 4px;
-            border: 1px solid #ddd;
-        }
+        /* BENTO GRID DENGAN GARIS MARGIN HIJAU TEBAL */
+        .bento-grid { display: grid; grid-template-columns: 280px 240px 1.2fr 1.5fr; gap: 12px; margin-bottom: 12px; }
+        .card { background: var(--white); border-radius: 12px; border: 3.5px solid var(--primary-green); padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .section-title { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: bold; }
 
-        .role-btn {
-            border: none;
-            padding: 8px 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            background: transparent;
-            color: #666;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .role-btn.active {
-            background: var(--primary-green);
-            color: white;
-        }
-
-        /* BENTO GRID */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 280px 240px 1.2fr 1.5fr;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            border: 3.5px solid var(--primary-green);
-            padding: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .section-title {
-            color: var(--accent-gold);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        /* PROFILE, ABOUT, CONTACT, EDUCATION, CERT (Statis) */
+        /* PROFILE & ABOUT */
         .profile-card { grid-row: span 2; padding: 0; overflow: hidden; background: #000; }
         .profile-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .about-card { grid-column: span 3; position: relative; }
         .about-card h2 { color: var(--primary-green); margin: 0; font-size: 1.8rem; }
         .about-card .sub-role { color: var(--accent-gold); font-weight: bold; font-size: 1rem; margin-bottom: 10px; }
         .download-cv { position: absolute; top: 15px; right: 15px; border: 1.5px solid var(--primary-green); color: var(--primary-green); padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        /* STACKED ITEMS */
         .stack-container { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
         .stack-item { padding: 10px; border-radius: 10px; font-size: 0.8rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; background: var(--gray-box); border: 1px solid #ddd; }
         .item-primary { background: var(--primary-green); color: white; border-color: var(--primary-green); display: block; }
@@ -111,21 +53,21 @@
         .tech-icon i { font-size: 1.6rem; color: var(--secondary-green); display: block; margin-bottom: 4px; }
         .tag-box { background: var(--gray-box); padding: 6px 15px; border-radius: 25px; font-size: 0.75rem; border: 1px solid #ddd; font-weight: 500; }
 
-        /* PROJECT SECTION (DETAILED) */
-        .project-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 15px; background: #fff; }
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
-        .project-card-inner { background: var(--gray-box); border-radius: 12px; border: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; gap: 8px; }
-        .project-card-inner h4 { color: var(--secondary-green); margin: 0; font-size: 1.1rem; }
+        /* EXPERIENCE SECTION */
+        .exp-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 20px; background: #fff; }
+        .project-detailed-grid { display: flex; flex-direction: column; gap: 20px; margin-top: 15px; }
+        .detailed-card { background: var(--gray-box); border-radius: 12px; border: 1px solid #ddd; padding: 20px; }
         
-        .project-detail-section { margin-bottom: 5px; }
-        .project-detail-label { font-size: 0.7rem; font-weight: bold; color: var(--primary-green); text-transform: uppercase; margin-bottom: 2px; display: block; }
-        .project-detail-text { font-size: 0.8rem; line-height: 1.4; color: #444; margin: 0; }
+        .detailed-card h4 { color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        .detailed-card p { font-size: 0.85rem; margin: 5px 0; line-height: 1.5; }
+        .detailed-card b { color: var(--secondary-green); font-size: 0.85rem; }
         
-        .tool-tag { font-size: 0.65rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
+        .link-group { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-link { padding: 5px 12px; border-radius: 5px; font-size: 0.75rem; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .btn-ppt { background: #d32f2f; color: white; }
+        .btn-work { background: #1976d2; color: white; }
         
-        .project-links { margin-top: 10px; display: flex; gap: 10px; }
-        .link-btn { font-size: 0.75rem; text-decoration: none; color: var(--secondary-green); font-weight: bold; border-bottom: 1px solid var(--secondary-green); transition: 0.3s; }
-        .link-btn:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+        .tool-tag { font-size: 0.7rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
     </style>
 </head>
 <body>
@@ -160,9 +102,9 @@
         <div class="card"><div class="section-title">SOFT SKILLS</div><div id="soft-skills" class="soft-skills-grid"></div></div>
     </div>
 
-    <div class="project-outer-card">
-        <div class="section-title">PROJECT EXPERIENCE</div>
-        <div id="project-list" class="project-grid"></div>
+    <div class="exp-outer-card">
+        <div id="exp-title" class="section-title">PROJECT EXPERIENCE</div>
+        <div id="experience-list" class="project-detailed-grid"></div>
     </div>
 </div>
 
@@ -174,73 +116,65 @@ const pageData = {
         linkedin: "https://linkedin.com/in/fadila-utami",
         tech: [{n:"Excel", i:"fa-table"}, {n:"SQL", i:"fa-database"}, {n:"Python", i:"fa-python"}, {n:"Power BI", i:"fa-chart-column"}, {n:"Tableau", i:"fa-chart-line"}],
         soft: ["Analytical Problem Solving", "Data Storytelling", "Collaboration"],
-        projects: [
+        expType: "PROJECT EXPERIENCE",
+        items: [
             {
-                tag: "REVOU (DEEPP)",
-                t: "Supergoop! Performance Analysis",
-                problem: "Understanding product ratings and online sales drivers at Sephora using review data.",
-                obj: "Identify key satisfaction drivers and sentiment drivers using 2023 product data.",
-                method: "Data extraction & cleaning (Python), EDA using Python (Google Colab), Data Visualization (Power BI).",
-                result: "76% positive sentiment identified. Top 3 sunscreen products identified with key performance metrics.",
-                tools: ["Python", "Power BI", "EDA"],
-                link_ppt: "#", // Masukkan link PPT Anda di sini
-                link_colab: "#" // Masukkan link Google Colab Anda di sini
+                t: "Supergoop! Performance Analysis (DEEPP)",
+                bg: "Analyze the drivers of Supergoop!'s product ratings and online sales contribution at Sephora using 2023 product and customer review data.",
+                obj: "Identify key factors influencing customer ratings and sentiment to provide data-driven recommendations for product improvement.",
+                meth: "Data Cleaning, Sentiment Analysis, and EDA using Python (Google Colab). Visualization built in Power BI.",
+                res: "Identified that Mini Size products have higher engagement. 76% of reviews are positive, with specific sentiment drivers identified for top sunscreens.",
+                ppt: "https://docs.google.com/presentation/d/your-link",
+                work: "https://colab.research.google.com/your-link",
+                tools: ["Python", "Power BI", "EDA"]
             },
             {
-                tag: "REVOU (ASSIGNMENT)",
                 t: "RevoBank Customer Segmentation",
-                problem: "Need to evaluate customer behavior and fraud impact on revenue over 6 months.",
-                obj: "Identify user personas and measure fraudulent impact on net revenue baseline.",
-                method: "Data cleaning (Python), RFM Analysis & K-Means Clustering (Google Colab), Tiered Growth Strategy.",
-                result: "Established IDR 5.83B profitability baseline and identified 3 distinct persona groups.",
-                tools: ["SQL", "Python", "K-Means"],
-                link_ppt: "#",
-                link_colab: "#"
+                bg: "RevoBank needs to evaluate credit card transaction performance and identify user personas to optimize marketing strategies.",
+                obj: "Segment customer base using behavioral and demographic data to identify high-value groups and measure fraud impact.",
+                meth: "Data Processing and K-Means Clustering using Python (Pandas, Scikit-Learn) on Google Colab.",
+                res: "Defined 3 distinct customer personas. Identified Cluster 1 as High-Value Active Users. Established an IDR 5.83B profitability baseline.",
+                ppt: "https://docs.google.com/presentation/d/your-link",
+                work: "https://colab.research.google.com/your-link",
+                tools: ["SQL", "Python", "K-Means"]
             }
-        ],
-        certs: ["Full-stack Data Analytics (RevoU)", "Data Analyst (Dsarea)"]
+        ]
     },
     ci: {
         role: "CONTINUOUS IMPROVEMENT ANALYST",
-        about: "Expert in process optimization and operational excellence. Successfully improved operational output by 30% through Lean principles.",
+        about: "Dedicated to process optimization and workflow efficiency. Successfully improved operational output by 30% through Lean principles and Root Cause Analysis.",
         linkedin: "https://linkedin.com/in/fadila-utami",
         tech: [{n:"Process Mapping", i:"fa-diagram-project"}, {n:"RCA", i:"fa-magnifying-glass-chart"}, {n:"Excel", i:"fa-table"}, {n:"Lean Tools", i:"fa-gears"}],
         soft: ["Systems Thinking", "Waste Reduction", "Process Optimization"],
-        projects: [
+        expType: "WORKING EXPERIENCE",
+        items: [
             {
-                tag: "WORKING EXPERIENCE",
-                t: "Property Operations Optimization",
-                problem: "Inefficient workflows causing high operational costs and slow maintenance response.",
-                obj: "Standardize operations and improve workflow efficiency by 30%.",
-                method: "Root Cause Analysis (RCA), Process Mapping, Implementation of Preventive Maintenance schedules.",
-                result: "Efficiency improved by 30% and operational reporting became more structured.",
-                tools: ["Lean", "RCA", "Process Mapping"],
-                link_ppt: "#",
-                link_colab: "#"
+                t: "Project Management Associate | Property Operations Company",
+                bg: "The company faced inefficiencies in cross-functional workflows and data integrity across multiple properties.",
+                obj: "Improve operational efficiency and standardize reporting processes using Lean Manufacturing principles.",
+                meth: "Implemented Root Cause Analysis (RCA) and Preventive Maintenance schedules. Standardized data entry workflows.",
+                res: "Successfully improved workflow efficiency by 30% and ensured 100% data reliability for management reporting.",
+                ppt: "#", work: "#", tools: ["Lean", "RCA", "SOP"]
             }
-        ],
-        certs: ["Six Sigma Green Belt (SSAA)", "Lean Manufacturing Background"]
+        ]
     },
     pm: {
         role: "PROJECT MANAGEMENT",
-        about: "Experienced in planning and executing project coordination using Gantt schedules and managing cross-functional teams.",
+        about: "Experienced in planning and executing project coordination. Proficient in managing timelines and cross-functional teams using structured Gantt schedules.",
         linkedin: "https://linkedin.com/in/fadila-utami",
         tech: [{n:"Project Planning", i:"fa-list-check"}, {n:"Gantt Charts", i:"fa-calendar-day"}, {n:"Tableau", i:"fa-chart-line"}],
         soft: ["Stakeholder Alignment", "Timeline Management", "Strategic Problem Solving"],
-        projects: [
+        expType: "WORKING EXPERIENCE",
+        items: [
             {
-                tag: "KPU MALAYSIA",
-                t: "General Elections Coordination",
-                problem: "Managing logistics and personnel across five site operations during high-pressure election period.",
-                obj: "Achieve 100% operational success across all sites with structured coordination.",
-                method: "Structured Gantt schedules, stakeholder alignment, and real-time monitoring.",
-                result: "Successfully managed 5 sites with zero major operational delays.",
-                tools: ["Gantt", "Coordination", "Strategic Planning"],
-                link_ppt: "#",
-                link_colab: "#"
+                t: "Project Coordinator | KPU Malaysia (General Elections)",
+                bg: "Managing logistics and personnel for 5 operational sites during high-pressure election periods.",
+                obj: "Achieve 100% operational success rate through precise timeline management and resource allocation.",
+                meth: "Developed Gantt project schedules and coordinated cross-functional teams across multiple sites.",
+                res: "Completed the project with zero downtime and 100% target achievement across all operational locations.",
+                ppt: "#", work: "#", tools: ["Gantt", "Coordination", "Logistics"]
             }
-        ],
-        certs: ["Project Management (Google)", "Project Management (Microsoft)"]
+        ]
     }
 };
 
@@ -248,55 +182,39 @@ function updatePage(key) {
     const d = pageData[key];
     document.getElementById('role-title').innerText = d.role;
     document.getElementById('about-desc').innerText = d.about;
+    document.getElementById('exp-title').innerText = d.expType;
+    
     document.getElementById('contact-content').innerHTML = `
         <div class="stack-item item-neutral"><i class="fa-solid fa-location-dot"></i> <span>Padang (Open to Relocation)</span></div>
         <a href="${d.linkedin}" target="_blank" class="stack-item item-neutral"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn: ${d.role}</span></a>
-        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><i class="fa-solid fa-envelope"></i> <span>fu.fadilautami@gmail.com</span></a>
-    `;
+        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><i class="fa-solid fa-envelope"></i> <span>fu.fadilautami@gmail.com</span></a>`;
+
     document.getElementById('edu-content').innerHTML = `
         <div class="stack-item item-primary"><b>Master of Industrial Engineering</b><span>UTM | 2021 - 2023</span></div>
-        <div class="stack-item item-neutral"><b>Bachelor of Industrial Engineering</b><span>Univ. Pancasila | 2014 - 2018</span></div>
-    `;
-    document.getElementById('cert-content').innerHTML = d.certs.map(c => `<div class="stack-item item-neutral"><b>${c}</b></div>`).join('');
+        <div class="stack-item item-neutral"><b>Bachelor of Industrial Engineering</b><span>Univ. Pancasila | 2014 - 2018</span></div>`;
+
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
     document.getElementById('soft-skills').innerHTML = d.soft.map(s => `<div class="tag-box">${s}</div>`).join('');
 
-    document.getElementById('project-list').innerHTML = d.projects.map(p => `
-        <div class="project-card-inner">
-            <div class="section-title" style="font-size: 0.6rem; margin-bottom: 5px;">${p.tag}</div>
-            <h4>${p.t}</h4>
-            <div class="project-detail-section">
-                <span class="project-detail-label">Background Problem</span>
-                <p class="project-detail-text">${p.problem}</p>
-            </div>
-            <div class="project-detail-section">
-                <span class="project-detail-label">Objective</span>
-                <p class="project-detail-text">${p.obj}</p>
-            </div>
-            <div class="project-detail-section">
-                <span class="project-detail-label">Method</span>
-                <p class="project-detail-text">${p.method}</p>
-            </div>
-            <div class="project-detail-section">
-                <span class="project-detail-label">Result</span>
-                <p class="project-detail-text">${p.result}</p>
-            </div>
-            <div style="margin: 5px 0;">
-                ${p.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}
-            </div>
-            <div class="project-links">
-                <a href="${p.link_ppt}" class="link-btn" target="_blank"><i class="fa-solid fa-file-powerpoint"></i> View Presentation</a>
-                <a href="${p.link_colab}" class="link-btn" target="_blank"><i class="fa-solid fa-code"></i> View Google Colab</a>
-            </div>
-        </div>
-    `).join('');
+    document.getElementById('experience-list').innerHTML = d.items.map(item => `
+        <div class="detailed-card">
+            <h4>${item.t}</h4>
+            <p><b>Background:</b> ${item.bg}</p>
+            <p><b>Objective:</b> ${item.obj}</p>
+            <p><b>Method:</b> ${item.meth}</p>
+            <p><b>Result:</b> ${item.res}</p>
+            <div style="margin-top:10px;">${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
+            ${key === 'data' ? `
+            <div class="link-group">
+                <a href="${item.ppt}" class="btn-link btn-ppt" target="_blank"><i class="fa-solid fa-file-powerpoint"></i> Link PPT</a>
+                <a href="${item.work}" class="btn-link btn-work" target="_blank"><i class="fa-solid fa-code"></i> Link Laman Kerja</a>
+            </div>` : ''}
+        </div>`).join('');
 
     document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('nav-' + key).classList.add('active');
 }
-
 updatePage('data');
 </script>
-
 </body>
 </html>
