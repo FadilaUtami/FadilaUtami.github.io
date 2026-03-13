@@ -202,12 +202,9 @@ function updatePage(key) {
 
     document.getElementById('contact-content').innerHTML = `
         <div class="stack-item item-neutral"><span>Padang (Open Relocation)</span></div>
-        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral" style="text-decoration: none; color: inherit;">
-            <div class="info-text"><i class="fa-solid fa-envelope"></i> fu.fadilautami@gmail.com </div>
-        </a>
-        <a href="${d.linkedin}" target="_blank" class="stack-item item-neutral" style="text-decoration: none; color: inherit;">
-            <div class="info-text"><i class="fa-brands fa-linkedin"></i> Fadila Utami </div>
-        </a>`;
+       <div class="stack-item"><b>Location</b><span>Padang (Open Relocation)</span></div>
+        <a href="${d.linkedin}" target="_blank" class="stack-item" style="border-color:var(--accent-gold); cursor:pointer;"><b>LinkedIn</b><span>linkedin.com/in/fadila-utami</span></a>
+        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item"><b>Email</b><span>fu.fadilautami@gmail.com</span></a>`;
     
     document.getElementById('edu-content').innerHTML = `
         <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>Universiti Teknologi Malaysia (UTM)  | Sep 2021 – Mar 2023 </span></div>
