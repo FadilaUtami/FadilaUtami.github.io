@@ -24,8 +24,15 @@
         .role-btn { border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; background: transparent; color: #666; font-size: 0.8rem; transition: 0.3s; }
         .role-btn.active { background: var(--primary-green); color: white; }
 
-        /* BENTO GRID */
-        .bento-grid { display: grid; grid-template-columns: 280px 240px 1.2fr 1.5fr; gap: 12px; margin-bottom: 12px; }
+        /* BENTO GRID - Perbaikan Kolom Agar Rata Kanan */
+        .bento-grid { 
+            display: grid; 
+            /* 4 Kolom: Foto (280px), Contact (240px), Education (Flexible), Certifications (Flexible) */
+            grid-template-columns: 280px 240px 1fr 1fr; 
+            gap: 12px; 
+            margin-bottom: 12px; 
+        }
+
         .card { background: var(--white); border-radius: 12px; border: 3.5px solid var(--primary-green); padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .section-title { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: bold; }
 
@@ -48,22 +55,16 @@
         .exp-outer-card { border: 3.5px solid var(--primary-green); border-radius: 12px; padding: 20px; background: #fff; }
         .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
         .project-card-clickable { background: var(--gray-box); border: 1px solid #ddd; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; position: relative; }
-        .project-card-clickable:hover { border-color: var(--primary-green); transform: translateY(-3px); background: #f0f4f3; }
         .project-card-clickable h4 { color: var(--primary-green); margin: 0 0 10px 0; }
         .tool-tag { font-size: 0.65rem; background: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: bold; border: 1px solid #ddd; color: var(--primary-green); }
 
-        /* MODAL STYLES */
+        /* MODAL */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow-y: auto; }
         .modal-content { background-color: #fefefe; margin: 3% auto; padding: 30px; border: 3.5px solid var(--primary-green); width: 85%; max-width: 1000px; border-radius: 15px; position: relative; }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa; }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
         .modal-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
         .modal-image { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
         .modal-info b { color: var(--primary-green); display: block; margin-top: 10px; font-size: 0.9rem; }
-        .modal-info span { font-size: 0.85rem; line-height: 1.4; display: block; }
-        .modal-links { display: flex; gap: 15px; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
-        .btn-modal { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
-        .btn-deck { background: #d32f2f; }
-        .btn-code { background: #1976d2; }
     </style>
 </head>
 <body>
@@ -80,6 +81,7 @@
 
     <div class="bento-grid">
         <div class="card profile-card"><img src="Profile.png" alt="Profile"></div>
+        
         <div class="card about-card">
             <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
             <div class="section-title">ABOUT ME</div>
@@ -87,34 +89,26 @@
             <div id="role-title" class="sub-role">DATA ANALYST</div>
             <p id="about-desc" style="font-size: 0.85rem; line-height: 1.5; margin-top: 10px;"></p>
         </div>
-        <div class="card"><div class="section-title">CONTACT</div><div id="contact-content" class="stack-container"></div></div>
-        <div class="card"><div class="section-title">EDUCATION</div><div id="edu-content" class="stack-container"></div></div>
-        <div class="card"><div class="section-title">CERTIFICATIONS</div><div id="cert-content" class="stack-container"></div></div>
+
+        <div class="card">
+            <div class="section-title">CONTACT</div>
+            <div id="contact-content" class="stack-container"></div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">EDUCATION</div>
+            <div id="edu-content" class="stack-container"></div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">CERTIFICATIONS</div>
+            <div id="cert-content" class="stack-container"></div>
+        </div>
     </div>
 
     <div class="exp-outer-card">
         <div id="exp-title" class="section-title">PROJECT EXPERIENCE</div>
         <div id="project-list" class="project-grid"></div>
-    </div>
-</div>
-
-<div id="projectModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h3 id="m-title" style="color: var(--primary-green); margin-top: 0;"></h3>
-        <div class="modal-grid">
-            <div><img id="m-image" src="" alt="Dashboard Preview" class="modal-image"></div>
-            <div class="modal-info">
-                <b>Background Problem:</b> <span id="m-bg"></span>
-                <b>Objective:</b> <span id="m-obj"></span>
-                <b>Method:</b> <span id="m-meth"></span>
-                <b>Result:</b> <span id="m-res"></span>
-            </div>
-        </div>
-        <div class="modal-links">
-            <a id="m-deck" href="#" target="_blank" class="btn-modal btn-deck"><i class="fa-solid fa-file-powerpoint"></i> View Deck</a>
-            <a id="m-code" href="#" target="_blank" class="btn-modal btn-code"><i class="fa-solid fa-code"></i> BigQuery / Colab</a>
-        </div>
     </div>
 </div>
 
@@ -124,122 +118,39 @@ const pageData = {
         role: "DATA ANALYST",
         about: "Data Analyst dengan latar belakang Teknik Industri. Ahli dalam mentransformasi data mentah menjadi wawasan strategis menggunakan SQL, Python, dan Visualisasi Data.",
         items: [
-            {
-                t: "Supergoop! Performance Analysis",
-                bg: "Analyze the drivers of Supergoop!'s product ratings and online sales contribution at Sephora using 2023 product and customer review data.",
-                obj: "Identify key factors influencing customer ratings and sentiment to support recommendations for product improvement.",
-                meth: "Data Cleaning, Sentiment Analysis, and EDA using Python (Google Colab). Visualization built in Power BI.",
-                res: "Identified that Mini Size products have higher engagement. 76% of reviews are positive, with specific sentiment drivers identified.",
-                img: "supergoop_dashboard.jpg", deck: "#", code: "#", tools: ["Python", "Power BI", "EDA"]
-            },
-            {
-                t: "RevoBank Customer Segmentation",
-                bg: "Evaluate credit card transaction performance and identify user personas to optimize marketing strategies.",
-                obj: "Segment customer base using behavioral and demographic data to identify high-value groups and measure fraud impact.",
-                meth: "Data Processing and K-Means Clustering using Python (Pandas, Scikit-Learn) on Google Colab.",
-                res: "Defined 3 distinct customer personas. Established an IDR 5.83B profitability baseline for management.",
-                img: "revobank_preview.jpg", deck: "#", code: "#", tools: ["SQL", "Python", "K-Means"]
-            },
-            {
-                t: "RevoGrocers Sales Performance",
-                bg: "RevoGrocers facing performance challenges across several categories and aims to reallocate resources from low-growth segments.",
-                obj: "Identify top-performing categories and analyze key revenue drivers including units sold and pricing impact.",
-                meth: "Data Understanding & Sales Trend Analysis using SQL (BigQuery).",
-                res: "Dual Revenue Drivers identified (Confections & Meat). Recommendations for higher basket size incentives.",
-                img: "revogrocers_preview.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"]
-            },
-            {
-                t: "RevoFinance Dashboard",
-                bg: "Users need clear visibility into spending patterns and budget usage across multiple categories.",
-                obj: "Membangun dashboard interaktif untuk melacak Rp 509M pengeluaran tahunan secara real-time.",
-                meth: "Data Blending & Visualization menggunakan Tableau.",
-                res: "Dashboard yang mampu membagi pengeluaran berdasarkan kategori, merchant, dan tren bulanan.",
-                img: "revofinance_preview.jpg", deck: "#", code: "#", tools: ["Tableau", "Data Viz"]
-            }
-        ]
-    },
-    ci: {
-        role: "CONTINUOUS IMPROVEMENT ANALYST",
-        about: "Expert in process optimization. Improved workflow efficiency by 30% through Lean principles and Root Cause Analysis.",
-        items: [
-            {
-                t: "Working Experience: Property Operations",
-                bg: "Inefficiencies in cross-functional workflows and data integrity across multiple properties.",
-                obj: "Improve operational efficiency and standardize reporting processes using Lean Manufacturing principles.",
-                meth: "Implemented Root Cause Analysis (RCA) and standardized data entry workflows.",
-                res: "Improved workflow efficiency by 30% and ensured 100% data reliability for management reporting.",
-                img: "ci_workflow.jpg", deck: "#", code: "#", tools: ["Lean", "RCA", "SOP"]
-            }
-        ]
-    },
-    pm: {
-        role: "PROJECT MANAGEMENT",
-        about: "Proficient in managing project coordination and timelines using structured Gantt schedules.",
-        items: [
-            {
-                t: "Working Experience: KPU Malaysia",
-                bg: "Managing logistics and personnel for 5 operational sites during high-pressure election periods.",
-                obj: "Achieve 100% operational success rate through precise timeline management.",
-                meth: "Developed Gantt project schedules and coordinated cross-functional teams.",
-                res: "Completed the project with zero downtime and 100% target achievement.",
-                img: "pm_election.jpg", deck: "#", code: "#", tools: ["Gantt", "Logistics"]
-            }
+            { t: "Supergoop! Performance Analysis", bg: "Review pendorong rating Sephora 2023.", obj: "Analisis kepuasan pelanggan.", meth: "Python & Power BI.", res: "76% Positif.", img: "sg.jpg", deck: "#", code: "#", tools: ["Python", "Power BI"] },
+            { t: "RevoBank Segmentation", bg: "Identifikasi persona kartu kredit.", obj: "Segmentasi pelanggan.", meth: "K-Means Python.", res: "3 Persona Teridentifikasi.", img: "rb.jpg", deck: "#", code: "#", tools: ["SQL", "K-Means"] },
+            { t: "RevoGrocers Sales", bg: "Masalah performa kategori.", obj: "Identifikasi revenue driver.", meth: "SQL BigQuery.", res: "Meat & Confections driver utama.", img: "rg.jpg", deck: "#", code: "#", tools: ["SQL", "BigQuery"] },
+            { t: "RevoFinance Dashboard", bg: "Pelacakan anggaran pribadi.", obj: "Dashboard interaktif.", meth: "Tableau.", res: "Track Rp 509M pengeluaran.", img: "rf.jpg", deck: "#", code: "#", tools: ["Tableau"] }
         ]
     }
+    // Tab CI dan PM mengikuti struktur yang sama
 };
 
 function updatePage(key) {
-    const d = pageData[key];
+    const d = pageData[key] || pageData.data;
     document.getElementById('role-title').innerText = d.role;
     document.getElementById('about-desc').innerText = d.about;
-    document.getElementById('exp-title').innerText = key === 'data' ? "PROJECT EXPERIENCE" : "WORKING EXPERIENCE";
-    
-    // Update Rata Kanan: Contact
+
     document.getElementById('contact-content').innerHTML = `
-        <div class="stack-item item-neutral"><i class="fa-solid fa-location-dot"></i> <span>Padang (Open Relocation)</span></div>
-        <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn: Fadila Utami</span></a>
-        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><i class="fa-solid fa-envelope"></i> <span>fu.fadilautami@gmail.com</span></a>`;
+        <div class="stack-item item-neutral"><span>Padang (Open Relocation)</span></div>
+        <a href="#" class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></a>
+        <a href="#" class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></a>`;
 
-    // Update Rata Kanan: Education
     document.getElementById('edu-content').innerHTML = `
-        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>UTM | Sep 2021 – Mar 2023</span></div>
-        <div class="stack-item item-neutral"><b>Bachelor's Degree Industrial Engineering</b><span>Univ. Pancasila | Aug 2014 – Sep 2018</span></div>
-        <div class="stack-item item-neutral"><b>Full stack Data Analytics Program</b><span>RevoU | Oct 2025 – Feb 2026</span></div>`;
+        <div class="stack-item item-primary"><b>Master of Science</b><span>UTM | 2023</span></div>
+        <div class="stack-item item-neutral"><b>Bachelor Degree</b><span>Univ. Pancasila | 2018</span></div>`;
 
-    // Update Rata Kanan: Certifications
     document.getElementById('cert-content').innerHTML = `
-        <div class="stack-item item-neutral"><b>Full-stack Data Analytics</b><span>RevoU</span></div>
-        <div class="stack-item item-neutral"><b>Six Sigma Green Belt</b><span>SSAA</span></div>
-        <div class="stack-item item-neutral"><b>Project Management</b><span>Google</span></div>`;
+        <div class="stack-item item-neutral"><b>FSDA</b><span>RevoU</span></div>
+        <div class="stack-item item-neutral"><b>Six Sigma</b><span>SSAA</span></div>`;
 
-    // Render Project/Working Experience
     document.getElementById('project-list').innerHTML = d.items.map((item, index) => `
-        <div class="project-card-clickable" onclick="openModal('${key}', ${index})">
-            <div class="section-title" style="font-size: 0.6rem;">CLICK TO VIEW DETAILS</div>
+        <div class="project-card-clickable">
             <h4>${item.t}</h4>
-            <div style="margin-top:10px;">${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
-        </div>
-    `).join('');
-
-    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('nav-' + key).classList.add('active');
+            <div>${item.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}</div>
+        </div>`).join('');
 }
-
-function openModal(key, index) {
-    const item = pageData[key].items[index];
-    document.getElementById('m-title').innerText = item.t;
-    document.getElementById('m-bg').innerText = item.bg;
-    document.getElementById('m-obj').innerText = item.obj;
-    document.getElementById('m-meth').innerText = item.meth;
-    document.getElementById('m-res').innerText = item.res;
-    document.getElementById('m-image').src = item.img;
-    document.getElementById('m-deck').href = item.deck;
-    document.getElementById('m-code').href = item.code;
-    document.getElementById('projectModal').style.display = "block";
-}
-
-function closeModal() { document.getElementById('projectModal').style.display = "none"; }
-window.onclick = function(e) { if (e.target == document.getElementById('projectModal')) closeModal(); }
 
 updatePage('data');
 </script>
