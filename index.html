@@ -66,17 +66,21 @@
         /* BENTO GRID - TOP SECTION */
         .bento-grid {
             display: grid;
-            grid-template-columns: 320px 1.2fr 0.8fr 1fr;
+            grid-template-columns: 320px 1fr 1.2fr 1.2fr;
             grid-template-rows: auto auto;
             gap: 12px;
         }
 
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        .about-card {
+            grid-column: span 3; 
+            position: relative;
+        }
+
+        .stack-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            height: 100%;
         }
 
         .section-title {
@@ -212,26 +216,26 @@
             <a href="fadila utami (Revisi)(W2).pdf" class="download-cv" target="_blank">DOWNLOAD CV</a>
             <div class="section-title">ABOUT ME</div>
             <h2>Fadila Utami</h2>
-            <div class="sub-role">DATA ANALYST</div>
+            <div class="sub-role">DATA ANALYST [cite: 7]</div>
             <p style="font-size: 0.8rem; line-height: 1.5; text-align: justify;">
-                I am a Data Analyst with an Industrial Engineering background[cite: 4]. I improved workflow efficiency by 30% through Lean principles[cite: 5]. Mastering SQL, Python, Power BI and Tableau to transform complex datasets into actionable insights[cite: 6].
+               I am a Data Analyst with an Industrial Engineering background, passionate about leveraging data to drive business efficiency. I am eager to collaborate with teams to transform data into impactful strategies that align with organizational goals.
             </p>
         </div>
 
         <div class="card">
             <div class="section-title">CONTACT</div>
-            <div class="stack-container">
+        <    div class="stack-container">
                 <div class="stack-item item-neutral">
                     <i class="fa-solid fa-location-dot"></i>
-                    <div>Padang (Open to Relocation)</div>
+                    <div style="font-size: 0.75rem;">Padang (Open to Relocation) [cite: 2]</div>
                 </div>
                 <a href="https://linkedin.com/in/fadila-utami" target="_blank" class="stack-item item-neutral">
                     <i class="fa-brands fa-linkedin"></i>
-                    <div>Linkedin</div>
+                    <div style="font-size: 0.75rem;">Linkedin [cite: 2]</div>
                 </a>
                 <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral">
                     <i class="fa-solid fa-envelope"></i>
-                    <div>fu.fadilautami@gmail.com</div>
+                    <div style="font-size: 0.75rem;">fu.fadilautami@gmail.com [cite: 2]</div>
                 </a>
             </div>
         </div>
@@ -258,13 +262,13 @@
                 <div class="stack-item item-neutral">
                     <div style="font-size: 0.75rem;">
                         <b>Six Sigma Green Belt</b>
-                        <span>Six Sigma Academy Amsterdam [cite: 57]</span>
+                        <span>Six Sigma Academy Amsterdam</span>
                     </div>
                 </div>
                 <div class="stack-item item-neutral">
                     <div style="font-size: 0.75rem;">
                         <b>Project Management Professional</b>
-                        <span>Issued by Google [cite: 58]</span>
+                        <span>Issued by Google]</span>
                     </div>
                 </div>
             </div>
