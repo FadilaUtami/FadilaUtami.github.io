@@ -145,7 +145,7 @@ const pageData = {
         items: [
             { 
                 t: "RevoGrocers Sales Analysis", 
-                shortDesc: "RevoGrocers is a fictional grocery retailer operating multiple locations. The company aims to optimize revenue performance by reallocating resources from low-performing categories using data-driven insights.", 
+                shortDesc: "This project analyzes wholesale retail sales data to identify top-performing product categories and key drivers of company revenue.", 
                 bg: "RevoGrocers facing performance challenges across several categories and aims to reallocate resources from low-growth segments.", 
                 obj: "Identify top-performing product categories and analyze key revenue drivers including unit sold and pricing impact.", 
                 meth: "Data Understanding & Sales Trend Analysis using SQL (BigQuery).", 
@@ -157,7 +157,7 @@ const pageData = {
             },
             { 
                 t: "Supergoop! Performance Analysis", 
-                shortDesc: "Comprehensive analysis of Supergoop!'s market position at Sephora, focusing on how product ratings and pricing influence online customer engagement and sales contribution.",
+                shortDesc: "This project evaluates the market performance of Supergoop! products by examining the relationship between product ratings, prices, and customer review sentiment.",
                 bg: "Analyze the drivers of Supergoop!'s product ratings and online sales contribution at Sephora using 2023 product and customer review data.", 
                 obj: "Identify key factors influencing customer ratings and sentiment to support recommendations for product improvement.", 
                 meth: "Data Cleaning, Sentiment Analysis, and EDA using Python (Google Colab).", 
@@ -165,11 +165,11 @@ const pageData = {
                 img: "supergoop_preview.jpg",
                 deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/Supergoop!%20Performance%20Analysis%20at%20Sephora/Supergoop!%20Performance%20Analysis.pdf",
                 code: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/Supergoop!%20Performance%20Analysis%20at%20Sephora/Supergoop!%20Performance%20Analysis.ipynb",
-                tools: ["Python", "Power BI"] 
+                tools: ["Python"," Exploratory Data Analysis (EDA)", "Power BI"] 
             },
             { 
                 t: "RevoBank Customer Segmentation", 
-                shortDesc: "Evaluation of credit card transaction performance to identify user personas. This project helps the bank optimize marketing strategies based on customer behavior segments.",
+                shortDesc: "This project analyzes credit card transaction data to identify customer segments and understand their behavior patterns.",
                 bg: "Evaluate credit card transaction performance and identify user personas to optimize marketing strategies.", 
                 obj: "Segment customer base using behavioral and demographic data to identify high-value groups and measure fraud impact.", 
                 meth: "K-Means Clustering using Python (Pandas, Scikit-Learn).", 
@@ -177,11 +177,11 @@ const pageData = {
                 img: "revobank_preview.jpg",
                 deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoBank_Customer_Segmentation/FSDA%20OCT25%20_%20Intermediate%20Python.pdf",
                 code: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoBank_Customer_Segmentation/FSDA%20OCT25%20_%20Intermediate%20Python.ipynb",
-                tools: ["SQL", "Python"] 
+                tools: ["Python", "K-Means Clustering", "Customer Segmentation" ] 
             },
             { 
                 t: "RevoFinance Dashboard", 
-                shortDesc: "Personal finance visualization designed for end-users to track spending patterns. The dashboard provides clear visibility into annual expenses and budget utilization.",
+                shortDesc: "This project develops a financial dashboard to track personal spending patterns and monitor budget usage across different expense categories.",
                 bg: "Users need clear visibility into spending patterns and budget usage across multiple categories.", 
                 obj: "Build interactive dashboard to track Rp 509M annual expenses real-time.", 
                 meth: "Data Blending & Visualization using Tableau.", 
@@ -189,7 +189,7 @@ const pageData = {
                 img: "revofinance_preview.jpg",
                 deck: "https://github.com/FadilaUtami/Data-Portfolio/blob/main/RevoFinance%20Data%20Visualization/FSDA%20OCT25_DATAVIZ.pdf",
                 code: "https://public.tableau.com/app/profile/fadila.utami",
-                tools: ["Tableau", "Finance"] 
+                tools: ["Tableau", "Dashboard Development"] 
             }
         ]
     }
@@ -202,16 +202,16 @@ function updatePage(key) {
 
     document.getElementById('contact-content').innerHTML = `
         <div class="stack-item item-neutral"><span>Padang (Open Relocation)</span></div>
-        <div class="stack-item item-neutral"><span>LinkedIn: Fadila Utami</span></div>
-        <div class="stack-item item-neutral"><span>fu.fadilautami@gmail.com</span></div>`;
-
+        <a href="${d.linkedin}" target="_blank" class="stack-item item-neutral"><b>LinkedIn</b><span>Visit Profile</span></a>
+        <a href="mailto:fu.fadilautami@gmail.com" class="stack-item item-neutral"><b>Email</b><span>fu.fadilautami@gmail.com</span></a>`;
+    
     document.getElementById('edu-content').innerHTML = `
-        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>UTM | Sep 2021 – Mar 2023 </span></div>
-        <div class="stack-item item-neutral"><b>Bachelor's Degree Industrial Engineering</b><span>Univ. Pancasila | Aug 2014 – Sep 2018 </span></div>
+        <div class="stack-item item-primary"><b>Master of Science Industrial Engineering</b><span>Universiti Teknologi Malaysia (UTM)  | Sep 2021 – Mar 2023 </span></div>
+        <div class="stack-item item-neutral"><b>Bachelor's Degree Industrial Engineering</b><span>Universitas Pancasila  | Aug 2014 – Sep 2018 </span></div>
         <div class="stack-item item-neutral"><b>Full stack Data Analytics Program</b><span>RevoU | Oct 2025 – Feb 2026</span></div>`;
 
     document.getElementById('cert-content').innerHTML = `
-        <div class="stack-item item-neutral"><b>Full-stack Data Analytics Program | Mar 2026</b><span>RevoU</span></div>
+        <div class="stack-item item-neutral"><b>Full-stack Data Analytics Program</b><span>RevoU | Mar 2026</span></div>
         <div class="stack-item item-neutral"><b>Data Analytics</b><span>Dsarea | Sep 2025</span></div>`;
 
     document.getElementById('tech-skills').innerHTML = d.tech.map(t => `<div class="tech-icon"><i class="fa-solid ${t.i}"></i>${t.n}</div>`).join('');
